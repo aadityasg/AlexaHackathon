@@ -1,0 +1,40 @@
+!SESSION 2017-07-21 09:28:28.204 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rohagraw/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/rohagraw/.eclipse_keyring
+
+!ENTRY amazon.devtools.brazil.eclipse.BrazilCommonEclipsePlugin 2 -1 2017-07-21 09:29:22.496
+!MESSAGE No existing workspace found
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:29:22.531
+!MESSAGE Starting the AWS toolkit core plugin...
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:29:25.950
+!MESSAGE No profile found: default
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:29:25.993
+!MESSAGE Monitoring content of /Users/rohagraw/.aws/credentials
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:29:26.183
+!MESSAGE AWS toolkit core plugin initialized after 3653 milliseconds.
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:29:26.193
+!MESSAGE The current accountId is not found in the system. Switching to the default account.
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:29:26.560
+!MESSAGE Initialized a new Cognito identity us-east-1:8d9b4a20-c940-4dda-8e70-a213d4d11414
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 09:31:28.017
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 09:31:28.035
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 09:31:40.495
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 09:31:40.501
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!

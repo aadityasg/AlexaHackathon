@@ -1,0 +1,14 @@
+com/ninja/alexa/skill/kitchen/TestUtils$TestJacksonMapperModule.class
+com/ninja/alexa/skill/kitchen/TestContext$1.class
+com/ninja/alexa/skill/kitchen/TestUtils.class
+com/ninja/alexa/skill/kitchen/TestContext.class
+com/ninja/alexa/skill/kitchen/TestUtils$DynamodbEventMixin$AttributeValueMixIn.class
+com/ninja/alexa/skill/kitchen/LambdaFunctionHandlerTest.class
+com/ninja/alexa/skill/kitchen/TestUtils$DynamodbEventMixin$RecordMixin.class
+com/ninja/alexa/skill/kitchen/TestUtils$UpperCaseRecordsPropertyNamingStrategy.class
+com/ninja/alexa/skill/kitchen/TestUtils$DynamodbEventMixin.class
+com/ninja/alexa/skill/kitchen/TestUtils$1.class
+com/ninja/alexa/skill/kitchen/TestUtils$DynamodbEventMixin$StreamRecordMixin.class
+com/ninja/alexa/skill/kitchen/TestUtils$DateTimeDeserializer.class
+com/ninja/alexa/skill/kitchen/TestContext$TestLogger.class
+com/ninja/alexa/skill/kitchen/TestUtils$DateTimeSerializer.class
