@@ -1,0 +1,53 @@
+package com.amazon.creative.experiment.lambda.aws;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.amazon.creative.experiment.lambda.model.CreativeEventLogDetails;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+
+/**
+ * DynamoDB Service
+ * 
+ * @author rohagraw
+ * @version 2017-07-11
+ */
+@Service
+public class DynamoDBService {
+    /************************************* Logger *************************************/
+    private static final Logger LOGGER = LoggerFactory.getLogger(DynamoDBService.class);
+
+    /**************************** Dependency-Injection(s) *****************************/
+    @Autowired
+    private DynamoDBMapper dynamoDBMapper;
+
+    /**
+     * Insert Entry Into DynamoDB Table
+     * 
+     * @param creativeEventLogDetails
+     */
+    public void insertEntry(final CreativeEventLogDetails creativeEventLogDetails) {
+        LOGGER.info("Start Putting DynamoDB Tuple...");
+        LOGGER.info("Item - {}", creativeEventLogDetails);
+        dynamoDBMapper.save(creativeEventLogDetails);
+    }
+
+    /**
+     * Get Entry From DynamoDB Table
+     * 
+     * @param tableName
+     * @return item
+     */
+    public List<CreativeEventLogDetails> getEntry(
+            final CreativeEventLogDetails creativeEventLogDetails) {
+        LOGGER.info("Start Getting DynamoDB Tuple...");
+        return dynamoDBMapper.query(CreativeEventLogDetails.class,
+                new DynamoDBQueryExpression<CreativeEventLogDetails>()
+                        .withHashKeyValues(creativeEventLogDetails));
+    }
+}

@@ -1,0 +1,43 @@
+package com.ninja.alexa.skill.kitchen;
+
+import java.util.List;
+
+import com.amazon.creative.experiment.lambda.model.CreativeEventLogDetails;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+
+/**
+ * DynamoDB Service
+ * 
+ * @author rohagraw
+ * @version 2017-07-11
+ */
+public class DynamoDBService {
+	private DynamoDBMapper dynamoDBMapper = new DynamoDBMapper(
+			AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_1).build());
+
+	/**
+	 * Insert Entry Into DynamoDB Table
+	 * 
+	 * @param creativeEventLogDetails
+	 */
+	public void insertEntry(final CreativeEventLogDetails creativeEventLogDetails) {
+		LOGGER.info("Start Putting DynamoDB Tuple...");
+		LOGGER.info("Item - {}", creativeEventLogDetails);
+		dynamoDBMapper.save(creativeEventLogDetails);
+	}
+
+	/**
+	 * Get Entry From DynamoDB Table
+	 * 
+	 * @param tableName
+	 * @return item
+	 */
+	public List<CreativeEventLogDetails> getEntry(final CreativeEventLogDetails creativeEventLogDetails) {
+		LOGGER.info("Start Getting DynamoDB Tuple...");
+		return dynamoDBMapper.query(CreativeEventLogDetails.class,
+				new DynamoDBQueryExpression<CreativeEventLogDetails>().withHashKeyValues(creativeEventLogDetails));
+	}
+}

@@ -1,0 +1,126 @@
+package com.ninja.alexa.skill.kitchen.alexa;
+
+import com.amazon.speech.slu.Intent;
+import com.amazon.speech.speechlet.IntentRequest;
+import com.amazon.speech.speechlet.LaunchRequest;
+import com.amazon.speech.speechlet.SessionEndedRequest;
+import com.amazon.speech.speechlet.SessionStartedRequest;
+import com.amazon.speech.speechlet.Speechlet;
+import com.amazon.speech.speechlet.SpeechletException;
+import com.amazon.speech.speechlet.SpeechletResponse;
+import com.amazon.speech.ui.PlainTextOutputSpeech;
+import com.amazon.speech.ui.Reprompt;
+import com.amazon.speech.ui.SimpleCard;
+
+/**
+ * This sample shows how to create a simple speechlet for handling speechlet
+ * requests.
+ */
+public class AlexaSpeechlet implements Speechlet {
+
+	/**
+	 * Creates and returns a {@code SpeechletResponse} with a welcome message.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getWelcomeResponse() {
+		String speechText = "Welcome to the Alexa Skills Kit, you can say hello";
+
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("HelloWorld");
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		// Create reprompt
+		Reprompt reprompt = new Reprompt();
+		reprompt.setOutputSpeech(speech);
+
+		return SpeechletResponse.newAskResponse(speech, reprompt, card);
+	}
+
+	/**
+	 * Creates a {@code SpeechletResponse} for the hello intent.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getHelloResponse() {
+		String speechText = "Hello world";
+
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("HelloWorld");
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		return SpeechletResponse.newTellResponse(speech, card);
+	}
+
+	/**
+	 * Creates a {@code SpeechletResponse} for the help intent.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getHelpResponse() {
+		String speechText = "You can say hello to me!";
+
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("HelloWorld");
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		// Create reprompt
+		Reprompt reprompt = new Reprompt();
+		reprompt.setOutputSpeech(speech);
+
+		return SpeechletResponse.newAskResponse(speech, reprompt, card);
+	}
+
+	@Override
+	public SpeechletResponse onIntent(IntentRequest arg0, com.amazon.speech.speechlet.Session arg1)
+			throws SpeechletException {
+		System.out.println("On Intenet: " + arg0);
+
+		Intent intent = arg0.getIntent();
+		String intentName = (intent != null) ? intent.getName() : null;
+
+		// "".equals(intentName)
+		if (true) {
+			return getHelloResponse();
+		} else if ("AMAZON.HelpIntent".equals(intentName)) {
+			return getHelpResponse();
+		} else {
+			throw new SpeechletException("Invalid Intent");
+		}
+	}
+
+	@Override
+	public SpeechletResponse onLaunch(LaunchRequest arg0, com.amazon.speech.speechlet.Session arg1)
+			throws SpeechletException {
+		System.out.println("On Launch: " + arg0);
+		return getWelcomeResponse();
+	}
+
+	@Override
+	public void onSessionEnded(SessionEndedRequest arg0, com.amazon.speech.speechlet.Session arg1)
+			throws SpeechletException {
+		System.out.println("Session Ended: " + arg0);
+
+	}
+
+	@Override
+	public void onSessionStarted(SessionStartedRequest arg0, com.amazon.speech.speechlet.Session arg1)
+			throws SpeechletException {
+		System.out.println("Session Started: " + arg0);
+	}
+}

@@ -1,0 +1,21 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class RecipeResponse {
+	@JsonProperty("count")
+	private long count;
+
+	@JsonProperty("recipes")
+	private List<Recipes> recipes;
+
+	public final class Recipes {
+		@JsonProperty("title")
+		private String title;
+
+		@JsonProperty("source_url")
+		private String sourceURL;
+	}
+}

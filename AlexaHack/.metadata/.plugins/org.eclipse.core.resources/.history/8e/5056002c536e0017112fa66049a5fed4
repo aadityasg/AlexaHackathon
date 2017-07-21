@@ -1,0 +1,12 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import java.util.List;
+
+public class RecipeResponse {
+	private long count;
+	private List<Recipes> recipes;
+
+	public final class Recipes {
+
+	}
+}

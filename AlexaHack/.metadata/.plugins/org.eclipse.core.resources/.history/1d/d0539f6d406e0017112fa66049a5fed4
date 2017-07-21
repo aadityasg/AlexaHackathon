@@ -1,0 +1,16 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+@DynamoDBTable(tableName = "ALEXA_SESSION_INFO")
+public class AlexaSessionInfo {
+	    private String sessionId;
+	    private String stateType;
+	    private String stateInput;
+
+	    @DynamoDBHashKey(attributeName = "session_id")
+
+	    @DynamoDBAttribute(attributeName = "log_data")
+	    
+	    
+}

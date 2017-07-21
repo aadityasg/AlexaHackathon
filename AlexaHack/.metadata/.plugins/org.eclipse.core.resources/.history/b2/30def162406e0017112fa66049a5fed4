@@ -1,0 +1,29 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+@DynamoDBTable(tableName = "ALEXA_SESSION_INFO")
+public class AlexaSessionInfo {
+	    private String impressionId;
+	    private String logData;
+	    private long ttl;
+
+	    @DynamoDBHashKey(attributeName = "impression_id")
+	    /**
+	     * @return the impressionId
+	     */
+	    public String getImpressionId() {
+	        return impressionId;
+	    }
+
+	    /**
+	     * @param impressionId
+	     *            the impressionId to set
+	     */
+	    public void setImpressionId(String impressionId) {
+	        this.impressionId = impressionId;
+	    }
+
+	    @DynamoDBAttribute(attributeName = "log_data")
+}

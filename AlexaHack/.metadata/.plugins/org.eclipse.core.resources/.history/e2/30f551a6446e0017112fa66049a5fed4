@@ -1,0 +1,69 @@
+package com.ninja.alexa.skill.kitchen;
+
+import java.io.IOException;
+import java.net.URI;
+
+import org.json.JSONObject;
+
+import com.amazonaws.ClientConfiguration;
+import com.amazonaws.DefaultRequest;
+import com.amazonaws.Request;
+import com.amazonaws.Response;
+import com.amazonaws.http.AmazonHttpClient;
+import com.amazonaws.http.HttpMethodName;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.ninja.alexa.skill.kitchen.aws.handlers.AWSErrorHandler;
+import com.ninja.alexa.skill.kitchen.aws.handlers.AWSResponseHandler;
+import com.ninja.alexa.skill.kitchen.model.AlexaSessionInfo;
+import com.ninja.alexa.skill.kitchen.model.InputEvent;
+import com.ninja.alexa.skill.kitchen.utilities.Constants;
+import com.ninja.alexa.skill.kitchen.utilities.Utilities;
+
+public class LambdaFunctionHandler implements RequestHandler<Object, String> {
+	private AmazonHttpClient httpClient = new AmazonHttpClient(new ClientConfiguration());
+	private DynamoDBService dbService = new DynamoDBService();
+	private static final ObjectReader INPUT_READER = Utilities.getJSONMapper().readerFor(InputEvent.class);
+
+	private Request<?> generateRequest(final String queryString) {
+		Request<?> request = new DefaultRequest<>(Constants.API_ENDPOINT);
+		request.setEndpoint(URI.create(Constants.API_ENDPOINT + Constants.API_KEY + Constants.API_QUERY + queryString));
+		request.setHttpMethod(HttpMethodName.GET);
+		return request;
+	}
+
+	private Response<String> sendRequest(final Request<?> request) {
+		return httpClient.requestExecutionBuilder().request(request).errorResponseHandler(new AWSErrorHandler())
+				.execute(new AWSResponseHandler());
+	}
+
+	@Override
+	public String handleRequest(Object event, Context context) {
+		context.getLogger().log("Request Object: " + event);
+		JSONObject json = new JSONObject(event);
+		context.getLogger().log("JSON Object: " + json);
+
+		try {
+			InputEvent inputEvent = INPUT_READER.readValue(event.toString().replace("=", "\":").replaceAll("{", "{\""));
+			context.getLogger().log("Request ID: " + inputEvent.getRequest().getRequestId());
+			AlexaSessionInfo alexaSessionInfo = new AlexaSessionInfo();
+			alexaSessionInfo.setSessionId(inputEvent.getSession().getSessionId());
+			alexaSessionInfo.setStateInput("foo");
+			alexaSessionInfo.setStateInput("bar");
+			dbService.insertEntry(alexaSessionInfo);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+			context.getLogger().log("Dang!");
+		}
+
+		/*
+		 * try { // Response<String> response = //
+		 * sendRequest(generateRequest(URLEncoder.encode(event.toString(), //
+		 * "UTF-8"))); // context.getLogger().log(response.getAwsResponse()); }
+		 * catch (Exception e) { e.printStackTrace();
+		 * context.getLogger().log("Dang!"); }
+		 */
+		return "Success";
+	}
+}

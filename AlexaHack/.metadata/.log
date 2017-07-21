@@ -345,3 +345,588 @@ org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://ec
 
 !ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:52:43.178
 !MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:56:28.560
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3027382517084222901.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:56:29.084
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3027382517084222901.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:56:34.794
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:56:34.802
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:56:34.802
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:17:18.491
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5284199159192869331.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:17:18.996
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5284199159192869331.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:17:25.531
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:17:25.540
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:17:25.540
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:17:58.423
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4478907770883340161.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:17:58.893
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4478907770883340161.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:18:03.947
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:18:03.956
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:18:03.956
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:20:08.926
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1136462388155781635.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:20:09.399
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1136462388155781635.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:20:15.363
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:20:15.372
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:20:15.372
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:28:19.774
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda7743373012558801832.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:28:20.274
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda7743373012558801832.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:28:27.048
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:28:27.056
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:28:27.056
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:46:52.894
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1092167568361003767.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:46:53.512
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1092167568361003767.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:47:00.708
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:47:00.715
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:47:00.715
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:50:06.144
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda9082449684684460806.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:50:06.675
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda9082449684684460806.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:50:13.185
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:50:13.192
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:50:13.194
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:57:11.340
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5733864420292872730.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:57:11.856
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5733864420292872730.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:57:19.178
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:57:19.184
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 11:57:19.184
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:23:48.160
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5312521955876854794.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:23:48.769
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5312521955876854794.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:23:57.952
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:23:57.959
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:23:57.959
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:28:46.630
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1776943818137480188.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:28:47.138
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1776943818137480188.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:28:54.876
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:28:54.886
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:28:54.886
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:29:23.453
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda8763271112655843033.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:29:24.029
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda8763271112655843033.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:29:29.999
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:29:30.007
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:29:30.008
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 12:37:03.058
+!MESSAGE The POM for com.amazonaws:aws-lambda-java-events:jar:1.4.0 is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 12:37:03.968
+!MESSAGE The POM for com.amazonaws:aws-lambda-java-events:jar:1.4.0 is missing, no dependency information available
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:44:41.093
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5763960250763808133.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:44:41.642
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5763960250763808133.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:44:47.987
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:44:47.996
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:44:47.996
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:48:08.816
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1695477302418753618.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:48:09.369
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1695477302418753618.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:48:19.177
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:48:19.183
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:48:19.183
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:49:41.854
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4284192452390288380.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:49:42.405
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4284192452390288380.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:49:49.738
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:49:49.746
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:49:49.746
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:50:50.856
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5269934506778127685.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:50:51.371
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5269934506778127685.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:50:58.608
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:50:58.615
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:50:58.615
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:58:27.202
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1286892647853007938.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:58:27.747
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1286892647853007938.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:58:36.043
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:58:36.050
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 12:58:36.050
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:00:56.747
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5616277022073535325.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:00:57.277
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5616277022073535325.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:01:07.493
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:01:07.501
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:01:07.501
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:04:09.098
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda6268768119820926387.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:04:09.637
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda6268768119820926387.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:04:18.060
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:04:18.068
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:04:18.068
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:06:13.063
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3891984330913763733.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:06:13.618
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3891984330913763733.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:06:21.211
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:06:21.219
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:06:21.219
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:12:10.921
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2618351997648330795.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:12:11.439
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2618351997648330795.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:12:19.037
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:12:19.043
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:12:19.044
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 13:19:09.489
+!MESSAGE The POM for org.slf4j:slf4j-api:jar:${slf4jVersion} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 13:19:09.630
+!MESSAGE The POM for org.slf4j:slf4j-api:jar:${slf4jVersion} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 13:19:30.642
+!MESSAGE The POM for org.slf4j:slf4j-api:jar:${slf4jVersion} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 13:19:30.789
+!MESSAGE The POM for org.slf4j:slf4j-simple:jar:${slf4jVersion} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 13:19:31.019
+!MESSAGE The POM for org.slf4j:slf4j-api:jar:${slf4jVersion} is missing, no dependency information available
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 13:19:31.019
+!MESSAGE The POM for org.slf4j:slf4j-simple:jar:${slf4jVersion} is missing, no dependency information available
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:23:27.506
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4590112917281299497.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:23:28.012
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4590112917281299497.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:23:35.536
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:23:35.544
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:23:35.544
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:25:15.161
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda9091976312077841481.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:25:15.717
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda9091976312077841481.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:25:22.760
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:25:22.767
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:25:22.767
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:32:39.294
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda211581897608978878.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:32:39.811
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda211581897608978878.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:32:46.929
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:32:46.936
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:32:46.936
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:33:58.382
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda6186700965626961318.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:33:58.991
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda6186700965626961318.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:34:07.519
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:34:07.526
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:34:07.527
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:46:16.603
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2139147300520915149.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:46:17.153
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2139147300520915149.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:46:26.752
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:46:26.758
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:46:26.758
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:50:44.953
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4780587329638381859.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:50:45.527
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4780587329638381859.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:50:52.688
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:50:52.696
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:50:52.696
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:22.452
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda7820734097223104752.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:23.016
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda7820734097223104752.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:29.889
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:29.899
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:29.899
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:46.979
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5593383889000761379.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:47.643
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda5593383889000761379.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:53.773
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:53.780
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:55:53.780
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:57:00.077
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3944693127976454757.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:57:00.625
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3944693127976454757.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:57:08.294
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:57:08.302
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 13:57:08.302
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:00:25.534
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1579070972470365460.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:00:26.066
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1579070972470365460.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:00:32.890
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:00:32.897
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:00:32.897
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:20:48.884
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1924514480530201538.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:20:49.449
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda1924514480530201538.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:20:59.451
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:20:59.459
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:20:59.459
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:23:19.800
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3945595790644308195.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:23:20.332
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3945595790644308195.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:23:29.371
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:23:29.378
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:23:29.378
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:29:18.960
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda8081583584880805735.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:29:19.486
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda8081583584880805735.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:29:27.257
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:29:27.265
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:29:27.265
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:31:19.844
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda757182309167970681.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:31:20.372
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda757182309167970681.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:31:28.744
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:31:28.752
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:31:28.752
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:33:30.761
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda337596481099727149.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:33:31.311
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda337596481099727149.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:33:41.009
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:33:41.015
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:33:41.016
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:35:15.340
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2266134073759203612.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:35:15.931
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2266134073759203612.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:35:24.199
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:35:24.207
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:35:24.207
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:36:42.014
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda594039546353234336.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:36:42.547
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda594039546353234336.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:36:50.347
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:36:50.354
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:36:50.355
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:40:24.461
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4015266101241625855.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 14:40:25.021
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4015266101241625855.zip

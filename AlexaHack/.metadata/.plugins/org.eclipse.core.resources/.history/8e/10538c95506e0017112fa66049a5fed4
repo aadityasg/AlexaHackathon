@@ -1,0 +1,205 @@
+package com.ninja.alexa.skill.kitchen.alexa;
+
+import com.amazon.speech.slu.Intent;
+import com.amazon.speech.speechlet.IntentRequest;
+import com.amazon.speech.speechlet.LaunchRequest;
+import com.amazon.speech.speechlet.Session;
+import com.amazon.speech.speechlet.SessionEndedRequest;
+import com.amazon.speech.speechlet.SessionStartedRequest;
+import com.amazon.speech.speechlet.Speechlet;
+import com.amazon.speech.speechlet.SpeechletException;
+import com.amazon.speech.speechlet.SpeechletResponse;
+import com.amazon.speech.ui.PlainTextOutputSpeech;
+import com.amazon.speech.ui.Reprompt;
+import com.amazon.speech.ui.SimpleCard;
+import com.ninja.alexa.skill.kitchen.api.APICaller;
+import com.ninja.alexa.skill.kitchen.aws.services.DynamoDBService;
+import com.ninja.alexa.skill.kitchen.model.AlexaSessionInfo;
+
+/**
+ * This sample shows how to create a simple speechlet for handling speechlet
+ * requests.
+ */
+public class AlexaSpeechlet implements Speechlet {
+	private DynamoDBService dbService = new DynamoDBService();
+	private APICaller apiCaller = new APICaller();
+
+	/**
+	 * Creates and returns a {@code SpeechletResponse} with a welcome message.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getWelcomeResponse() {
+		String speechText = "Welcome to the Alexa Skills Kit, you can say hello";
+
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("HelloWorld");
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		// Create reprompt
+		Reprompt reprompt = new Reprompt();
+		reprompt.setOutputSpeech(speech);
+
+		return SpeechletResponse.newAskResponse(speech, reprompt, card);
+	}
+
+	/**
+	 * Creates a {@code SpeechletResponse} for the hello intent.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getHelloResponse() {
+		String speechText = "Hello world";
+
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("HelloWorld");
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		// Create reprompt
+		Reprompt reprompt = new Reprompt();
+		reprompt.setOutputSpeech(speech);
+
+		return SpeechletResponse.newAskResponse(speech, reprompt, card);
+	}
+
+	/**
+	 * Creates a {@code SpeechletResponse} for the help intent.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getHelpResponse() {
+		String speechText = "You can say hello to me!";
+
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("HelloWorld");
+
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		// Create reprompt
+		Reprompt reprompt = new Reprompt();
+		reprompt.setOutputSpeech(speech);
+
+		return SpeechletResponse.newAskResponse(speech, reprompt, card);
+	}
+
+	@Override
+	public SpeechletResponse onIntent(IntentRequest request, Session session) throws SpeechletException {
+		System.out.println("On Intenet: " + request);
+
+		Intent intent = request.getIntent();
+		String intentName = (intent != null) ? intent.getName() : null;
+
+		System.out.println(intentName);
+
+		if ("CusineNameIntent".equals(intentName)) {
+			System.out.println("AAYA HAI!!!");
+			session.setAttribute("nextIntent", "SpiceLevelIntent");
+			session.setAttribute("cuisineName", intent.getSlots().get("Cusine").getValue());
+
+			AlexaSessionInfo alexaSessionInfo = new AlexaSessionInfo();
+			alexaSessionInfo.setSessionId(session.getSessionId());
+			alexaSessionInfo.setStateType("CusineNameIntent");
+			alexaSessionInfo.setStateInput(intent.getSlots().get("Cusine").getValue());
+			dbService.insertEntry(alexaSessionInfo);
+
+			/*
+			 * String event = "foo"; try { Response<String> response = apiCaller
+			 * .sendRequest(apiCaller.generateRequest(URLEncoder.encode(event,
+			 * "UTF-8"))); System.out.println(response.getAwsResponse()); return
+			 * getHelloResponse(); } catch (UnsupportedEncodingException e) {
+			 * 
+			 * e.printStackTrace(); throw new
+			 * SpeechletException("Invalid Intent"); }
+			 */
+
+			return getHelloResponse();
+		} else if ("SpiceLevelIntent".equals(intentName)) {
+			System.out.println("AAYA HAI!!!");
+			session.setAttribute("nextIntent", "PresentIngredientsIntent");
+			session.setAttribute("spiceLevel", intent.getSlots().get("SpiceLevel").getValue());
+
+			AlexaSessionInfo alexaSessionInfo = new AlexaSessionInfo();
+			alexaSessionInfo.setSessionId(session.getSessionId());
+			alexaSessionInfo.setStateType("SpiceLevelIntent");
+			alexaSessionInfo.setStateInput(intent.getSlots().get("SpiceLevel").getValue());
+			dbService.insertEntry(alexaSessionInfo);
+
+			/*
+			 * String event = "foo"; try { Response<String> response = apiCaller
+			 * .sendRequest(apiCaller.generateRequest(URLEncoder.encode(event,
+			 * "UTF-8"))); System.out.println(response.getAwsResponse()); return
+			 * getHelloResponse(); } catch (UnsupportedEncodingException e) {
+			 * 
+			 * e.printStackTrace(); throw new
+			 * SpeechletException("Invalid Intent"); }
+			 */
+
+			return getHelloResponse();
+		} else if ("SpiceLevelIntent".equals(intentName)) {
+			System.out.println("AAYA HAI!!!");
+			session.setAttribute("nextIntent", "PresentIngredientsIntent");
+			session.setAttribute("spiceLevel", intent.getSlots().get("SpiceLevel").getValue());
+
+			AlexaSessionInfo alexaSessionInfo = new AlexaSessionInfo();
+			alexaSessionInfo.setSessionId(session.getSessionId());
+			alexaSessionInfo.setStateType("SpiceLevelIntent");
+			alexaSessionInfo.setStateInput(intent.getSlots().get("SpiceLevel").getValue());
+			dbService.insertEntry(alexaSessionInfo);
+
+			/*
+			 * String event = "foo"; try { Response<String> response = apiCaller
+			 * .sendRequest(apiCaller.generateRequest(URLEncoder.encode(event,
+			 * "UTF-8"))); System.out.println(response.getAwsResponse()); return
+			 * getHelloResponse(); } catch (UnsupportedEncodingException e) {
+			 * 
+			 * e.printStackTrace(); throw new
+			 * SpeechletException("Invalid Intent"); }
+			 */
+
+			return getHelloResponse();
+		} else if ("AMAZON.HelpIntent".equals(intentName)) {
+			return getHelpResponse();
+		} else {
+			throw new SpeechletException("Invalid Intent");
+		}
+	}
+
+	@Override
+	public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
+		System.out.println("On Launch: " + request);
+		session.setAttribute("nextIntent", "CusineNameIntent");
+
+		AlexaSessionInfo alexaSessionInfo = new AlexaSessionInfo();
+		alexaSessionInfo.setSessionId(session.getSessionId());
+		alexaSessionInfo.setStateType("Launch");
+		dbService.insertEntry(alexaSessionInfo);
+
+		return getWelcomeResponse();
+	}
+
+	@Override
+	public void onSessionEnded(SessionEndedRequest arg0, Session arg1) throws SpeechletException {
+		System.out.println("Session Ended: " + arg0);
+
+	}
+
+	@Override
+	public void onSessionStarted(SessionStartedRequest arg0, Session arg1) throws SpeechletException {
+		System.out.println("Session Started: " + arg0);
+	}
+}
