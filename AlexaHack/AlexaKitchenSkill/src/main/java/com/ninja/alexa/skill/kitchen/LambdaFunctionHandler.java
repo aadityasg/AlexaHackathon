@@ -1,42 +1,56 @@
 package com.ninja.alexa.skill.kitchen;
 
+import java.io.IOException;
+import java.net.URI;
+
+import com.amazonaws.ClientConfiguration;
+import com.amazonaws.DefaultRequest;
+import com.amazonaws.Request;
+import com.amazonaws.Response;
+import com.amazonaws.http.AmazonHttpClient;
+import com.amazonaws.http.HttpMethodName;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.S3Event;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.GetObjectRequest;
-import com.amazonaws.services.s3.model.S3Object;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.ninja.alexa.skill.kitchen.aws.handlers.AWSErrorHandler;
+import com.ninja.alexa.skill.kitchen.aws.handlers.AWSResponseHandler;
+import com.ninja.alexa.skill.kitchen.model.InputEvent;
+import com.ninja.alexa.skill.kitchen.utilities.Constants;
+import com.ninja.alexa.skill.kitchen.utilities.Utilities;
 
-public class LambdaFunctionHandler implements RequestHandler<S3Event, String> {
+public class LambdaFunctionHandler implements RequestHandler<Object, String> {
+	private AmazonHttpClient httpClient = new AmazonHttpClient(new ClientConfiguration());
+	private static final ObjectReader INPUT_READER = Utilities.getJSONMapper().readerFor(InputEvent.class);
 
-    private AmazonS3 s3 = AmazonS3ClientBuilder.standard().build();
+	private Request<?> generateRequest(final String queryString) {
+		Request<?> request = new DefaultRequest<>(Constants.API_ENDPOINT);
+		request.setEndpoint(URI.create(Constants.API_ENDPOINT + Constants.API_KEY + Constants.API_QUERY + queryString));
+		request.setHttpMethod(HttpMethodName.GET);
+		return request;
+	}
 
-    public LambdaFunctionHandler() {}
+	private Response<String> sendRequest(final Request<?> request) {
+		return httpClient.requestExecutionBuilder().request(request).errorResponseHandler(new AWSErrorHandler())
+				.execute(new AWSResponseHandler());
+	}
 
-    // Test purpose only.
-    LambdaFunctionHandler(AmazonS3 s3) {
-        this.s3 = s3;
-    }
+	@Override
+	public String handleRequest(Object event, Context context) {
+		try {
+			String inputEvent = INPUT_READER.readValue(event.toString());
+			context.getLogger().log("Received Event: " + inputEvent);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			context.getLogger().log("Dang!");
+		}
 
-    @Override
-    public String handleRequest(S3Event event, Context context) {
-        context.getLogger().log("Received event: " + event);
-
-        // Get the object from the event and show its content type
-        String bucket = event.getRecords().get(0).getS3().getBucket().getName();
-        String key = event.getRecords().get(0).getS3().getObject().getKey();
-        try {
-            S3Object response = s3.getObject(new GetObjectRequest(bucket, key));
-            String contentType = response.getObjectMetadata().getContentType();
-            context.getLogger().log("CONTENT TYPE: " + contentType);
-            return contentType;
-        } catch (Exception e) {
-            e.printStackTrace();
-            context.getLogger().log(String.format(
-                "Error getting object %s from bucket %s. Make sure they exist and"
-                + " your bucket is in the same region as this function.", bucket, key));
-            throw e;
-        }
-    }
+		/*
+		 * try { // Response<String> response = //
+		 * sendRequest(generateRequest(URLEncoder.encode(event.toString(), //
+		 * "UTF-8"))); // context.getLogger().log(response.getAwsResponse()); }
+		 * catch (Exception e) { e.printStackTrace();
+		 * context.getLogger().log("Dang!"); }
+		 */
+		return "Success";
+	}
 }

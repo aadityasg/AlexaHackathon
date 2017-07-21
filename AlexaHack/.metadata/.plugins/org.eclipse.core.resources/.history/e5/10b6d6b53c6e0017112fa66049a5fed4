@@ -1,0 +1,62 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class InputEvent {
+	@JsonProperty("session")
+	private Session session;
+	
+	@JsonProperty("request")
+	private Request request;
+	
+	@JsonProperty("version")
+	private String version;
+
+	private final class Session {
+		@JsonProperty("sessionId")
+		private String sessionId;
+
+		@JsonProperty("application")
+		private Application application;
+
+		@JsonProperty("attributes")
+		private Attributes attributes;
+
+		@JsonProperty("user")
+		private User user;
+
+		@JsonProperty("new")
+		private boolean sessionType;
+
+		private final class Application {
+			@JsonProperty("applicationId")
+			private String applicationId;
+		}
+
+		private final class Attributes {
+			private String attr;
+		}
+
+		private final class User {
+			@JsonProperty("userId")
+			private String userId;
+		}
+	}
+
+	private final class Request {
+		private String type;
+		private String requestId;
+		private String locale;
+		private String timestamp;
+	}
+
+	{
+        "request": {
+          "type": "LaunchRequest",
+          "requestId": "EdwRequestId.4aa85d18-77e6-4f99-9b39-2152f508c524",
+          "locale": "en-US",
+          "timestamp": "2017-07-21T17:36:30Z"
+        },
+        "version": "1.0"
+      }
+}

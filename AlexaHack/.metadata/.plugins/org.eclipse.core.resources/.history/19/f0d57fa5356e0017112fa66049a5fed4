@@ -1,0 +1,25 @@
+package com.ninja.alexa.skill.kitchen;
+
+import com.amazonaws.http.AmazonHttpClient;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+public class LambdaFunctionHandler implements RequestHandler<String, String> {
+	private AmazonHttpClient client = AmazonHttpClient.builder().build();
+
+	public LambdaFunctionHandler() {
+	}
+
+	@Override
+	public String handleRequest(String event, Context context) {
+		context.getLogger().log("Received Event: " + event);
+		try {
+			client.execute(request, responseHandler, errorResponseHandler, executionContext);
+			return "Hello, World!";
+		} catch (Exception e) {
+			e.printStackTrace();
+			context.getLogger().log("Dang!");
+			throw e;
+		}
+	}
+}

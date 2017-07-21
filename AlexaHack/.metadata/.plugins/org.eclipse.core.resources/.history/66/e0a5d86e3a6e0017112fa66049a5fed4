@@ -1,0 +1,74 @@
+package com.ninja.alexa.skill.kitchen.utilities;
+
+import java.security.cert.CertPathValidatorException.Reason;
+
+import com.amazon.coverage.DoNotCheckCoverage;
+import com.amazonaws.annotation.Immutable;
+
+/**
+ * Application Constants
+ * 
+ * @author rohagraw
+ * @version 2017-07-11
+ */
+@Immutable
+@DoNotCheckCoverage(detail = "Constants", reason = Reason.COVERAGE_TOOL)
+public final class Constants {
+	/* Crypto Constants */
+	public static final String ODIN_KEY_BUCKET_NAME = "creative-experiment-kms-keys";
+	public static final String ODIN_KEY_BUCKET_PREFIX = "odin-keys/";
+	public static final String ODIN_KEY_SET_NAME = "com.amazon.d16g.cx.metrics.encryption";
+	public static final String KMS_KEY_ID = "15257a18-63ae-4aef-bc16-f4ca4885a6a2";
+
+	/* DynamoDB Service Constants */
+	public static final String DYNAMO_DB_CREATIVE_CLICK_DATA_TABLE = "CREATIVE_CLICK_DATA";
+	public static final long DYNAMO_DB_ATTR_TTL_WAIT = 21600000L;
+
+	/* SQS Constants */
+	public static final int SQS_MESSAGE_VISIBILITY_TIMEOUT = 3600;
+
+	/* S3 Service Constants */
+	public static final String S3_METADATA_SECRET_KEY = "x-amz-key";
+	public static final String S3_METADATA_IV_SPEC = "x-amz-iv";
+
+	/* ElasticSearch Service Constants */
+	public static final String ELASTICSEARCH_SERVICE_NAME = "es";
+	public static final String ELASTICSEARCH_SERVICE_ENDPOINT = "https://search-creative-experiment-3f4s5trfeqb6emdirdowgt5doe.us-east-1.es.amazonaws.com/";
+	public static final String ELASTICSEARCH_CREATE_CLICK_EVENTS_OBJECT_ENDPOINT = "click_events/creative_click_event_details/";
+
+	/* Log Line Locators */
+	public static final String LOG_LINE_LOCATOR_L1 = "PDAGDynamicTemplates";
+	public static final String LOG_LINE_LOCATOR_L2 = "CoordinateClick";
+
+	/* Log Attributes */
+	public static final char LOG_CHAR_SEP = '&';
+	public static final String LOG_ATTR_IMPRESSION_ID = "i=";
+	public static final String LOG_ATTR_CREATIVE_VARIATION = "cv=";
+	public static final String LOG_ATTR_AD_ID = "a=";
+	public static final String LOG_ATTR_AD_SERVER = "as=";
+	public static final String LOG_ATTR_CREATIVE_ID = "c=";
+	public static final String LOG_ATTR_EVENT_TYPE = "type=";
+	public static final String LOG_ATTR_EVENT_NAME = "en=";
+	public static final String LOG_ATTR_EVENT_VALUE = "ev=";
+	public static final String LOG_ATTR_LOG_TIME = "cb=";
+
+	/* Bean Name Constants */
+	public static final String BEAN_NAME_ELASTICSEARCH_RESPONSE_HANDLER = "ElasticSearchResponseHandler";
+	public static final String BEAN_NAME_ELASTICSEARCH_ERROR_HANDLER = "ElasticSearchErrorHandler";
+	public static final String BEAN_NAME_CREATIVE_CLICK_LAMBDA_HANDLER = "CreativeClickLambdaFunctionHandler";
+
+	/* General Constants */
+	public static final String NEWLINE_CHAR = "\n";
+	public static final String PROTOTYPE = "prototype";
+	public static final String ENCODING_UTF8 = "UTF-8";
+	public static final long TIME_MILLS = 1000L;
+
+	/* Error Messages */
+	public static final String ERR_NULL_S3_OBJECT = "Null S3 Object Received!";
+	public static final String ERR_ELASTICSEARCH_QUERY = "Error Occured While Querying ElasticSearch Cluster!";
+
+	/********** Constructor **********/
+	private Constants() {
+		/* Private Constructor */
+	}
+}

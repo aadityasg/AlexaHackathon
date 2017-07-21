@@ -38,3 +38,310 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2017-07-21 09:31:40.501
 !MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2017-07-21 09:40:11.467 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/rohagraw/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/rohagraw/.eclipse_keyring
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-07-21 09:40:34.537
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.resources 4 4 2017-07-21 09:40:34.883
+!MESSAGE Exception loading preferences from: /AlexaKitchenSkill/.settings/org.eclipse.core.resources.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/rohagraw/workspace/AlexaHackathon/AlexaHack/AlexaKitchenSkill/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:83)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:134)
+	at org.eclipse.core.internal.resources.Resource.deleteResource(Resource.java:849)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.deleteResource(RefreshLocalVisitor.java:89)
+	at org.eclipse.core.internal.localstore.RefreshLocalAliasVisitor.deleteResource(RefreshLocalAliasVisitor.java:45)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.synchronizeExistence(RefreshLocalVisitor.java:177)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:284)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:111)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:974)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshRoot(FileSystemResourceManager.java:999)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:953)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1594)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:163)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-07-21 09:40:34.885
+!MESSAGE File not found: /Users/rohagraw/workspace/AlexaHackathon/AlexaHack/AlexaKitchenSkill/.settings/org.eclipse.core.resources.prefs.
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-07-21 09:40:34.888
+!MESSAGE Exception loading preferences from: /Users/rohagraw/workspace/AlexaHackathon/AlexaHack/AlexaKitchenSkill/.settings/org.eclipse.core.resources.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /AlexaKitchenSkill/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:83)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:134)
+	at org.eclipse.core.internal.resources.Resource.deleteResource(Resource.java:849)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.deleteResource(RefreshLocalVisitor.java:89)
+	at org.eclipse.core.internal.localstore.RefreshLocalAliasVisitor.deleteResource(RefreshLocalAliasVisitor.java:45)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.synchronizeExistence(RefreshLocalVisitor.java:177)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:284)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:111)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:974)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshRoot(FileSystemResourceManager.java:999)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:953)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1594)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:163)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.resources 4 4 2017-07-21 09:40:35.636
+!MESSAGE Exception loading preferences from: /AlexaKitchenSkill/.settings/org.eclipse.m2e.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: File not found: /Users/rohagraw/workspace/AlexaHackathon/AlexaHack/AlexaKitchenSkill/.settings/org.eclipse.m2e.core.prefs.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:840)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:277)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:83)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:134)
+	at org.eclipse.core.internal.resources.Resource.deleteResource(Resource.java:849)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.deleteResource(RefreshLocalVisitor.java:89)
+	at org.eclipse.core.internal.localstore.RefreshLocalAliasVisitor.deleteResource(RefreshLocalAliasVisitor.java:45)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.synchronizeExistence(RefreshLocalVisitor.java:177)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:284)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:111)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:974)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshRoot(FileSystemResourceManager.java:999)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:953)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1594)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:163)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-07-21 09:40:35.636
+!MESSAGE File not found: /Users/rohagraw/workspace/AlexaHackathon/AlexaHack/AlexaKitchenSkill/.settings/org.eclipse.m2e.core.prefs.
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-07-21 09:40:35.636
+!MESSAGE Exception loading preferences from: /Users/rohagraw/workspace/AlexaHackathon/AlexaHack/AlexaKitchenSkill/.settings/org.eclipse.m2e.core.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /AlexaKitchenSkill/.settings/org.eclipse.m2e.core.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:370)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.getChild(EclipsePreferences.java:491)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:621)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:766)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:83)
+	at org.eclipse.core.internal.resources.ProjectPreferences.deleted(ProjectPreferences.java:134)
+	at org.eclipse.core.internal.resources.Resource.deleteResource(Resource.java:849)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.deleteResource(RefreshLocalVisitor.java:89)
+	at org.eclipse.core.internal.localstore.RefreshLocalAliasVisitor.deleteResource(RefreshLocalAliasVisitor.java:45)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.synchronizeExistence(RefreshLocalVisitor.java:177)
+	at org.eclipse.core.internal.localstore.RefreshLocalVisitor.visit(RefreshLocalVisitor.java:284)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:111)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:974)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:960)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshRoot(FileSystemResourceManager.java:999)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:953)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1594)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:163)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:40:41.808
+!MESSAGE Starting the AWS toolkit core plugin...
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:40:43.616
+!MESSAGE No profile found: default
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:40:43.655
+!MESSAGE Monitoring content of /Users/rohagraw/.aws/credentials
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:40:43.925
+!MESSAGE AWS toolkit core plugin initialized after 2116 milliseconds.
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:40:44.353
+!MESSAGE Initialized a new Cognito identity us-east-1:09e41d37-7963-4255-a1d2-91afdc161134
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 09:40:48.264
+!MESSAGE The current accountId is not found in the system. Switching to the default account.
+
+!ENTRY amazon.devtools.brazil.eclipse.BrazilCommonEclipsePlugin 2 -1 2017-07-21 09:40:52.809
+!MESSAGE No existing workspace found
+
+!ENTRY org.eclipse.epp.mpc.ui 1 2 2017-07-21 09:43:53.597
+!MESSAGE Skipping update check for repository 'http://eclipse-jetty.github.io/update/' - failed to read repository. Affected entries: 
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://eclipse-jetty.github.io/update/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:395)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.fail(CachingRepositoryManager.java:353)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:244)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:476)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog$13.run(MarketplaceCatalog.java:279)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:43:53.598
+!MESSAGE No repository found at http://eclipse-jetty.github.io/update/.
+!SUBENTRY 1 org.eclipse.epp.mpc.ui 1 0 2017-07-21 09:43:53.598
+!MESSAGE Eclipse Jetty 3.9.0
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2017-07-21 09:43:53.643
+!MESSAGE Server returned lastModified <= 0 for https://raw.github.com/guari/eclipse-ui-theme/master/com.github.eclipseuitheme.themes.updatesite/content.jar
+
+!ENTRY org.eclipse.epp.mpc.ui 1 2 2017-07-21 09:43:54.643
+!MESSAGE Skipping update check for repository 'http://eclipse.sonarlint.org/' - failed to read repository. Affected entries: 
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://eclipse.sonarlint.org/.
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.fail(AbstractRepositoryManager.java:395)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.oomph.util.ReflectUtil.invokeMethod(ReflectUtil.java:117)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.fail(CachingRepositoryManager.java:353)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager.loadRepository(CachingRepositoryManager.java:244)
+	at org.eclipse.oomph.p2.internal.core.CachingRepositoryManager$Metadata.loadRepository(CachingRepositoryManager.java:476)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.epp.internal.mpc.ui.catalog.MarketplaceCatalog$13.run(MarketplaceCatalog.java:279)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:43:54.643
+!MESSAGE No repository found at http://eclipse.sonarlint.org/.
+!SUBENTRY 1 org.eclipse.epp.mpc.ui 1 0 2017-07-21 09:43:54.643
+!MESSAGE SonarLint 3.2.0
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:22.889
+!MESSAGE No repository found at http://download.eclipse.org/releases/neon.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:23.304
+!MESSAGE No repository found at jar:file:/Users/rohagraw/Downloads/org.sonarlint.eclipse.site-3.1.0.201705051000.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:24.735
+!MESSAGE No repository found at file:/Users/rohagraw/ec_plugin/eclipse-jetty-plugin/plugins/eclipse-jetty-launcher/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:24.746
+!MESSAGE No repository found at jar:file:/Users/rohagraw/Downloads/eclipse-themes-master.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:26.728
+!MESSAGE No repository found at https://sourceforge.net/projects/eclipse-jetty.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:26.807
+!MESSAGE No repository found at jar:file:/Users/rohagraw/Downloads/net.sourceforge.eclipsejetty.launcher-3.6.0.jar!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:26.974
+!MESSAGE No repository found at http://download.eclipse.org/eclipse/updates/4.6.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:27.140
+!MESSAGE No repository found at http://download.eclipse.org/oomph/updates/milestone/latest.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:27.142
+!MESSAGE No repository found at file:/Users/rohagraw/ec_plugin/eclipse-jetty-plugin/plugins/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:31.257
+!MESSAGE No repository found at https://github.com/eclipse-jetty/eclipse-jetty-plugin.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:31.586
+!MESSAGE No repository found at http://eclipse-jetty.sourceforge.net/update/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:31.820
+!MESSAGE No repository found at http://run-jetty-run.googlecode.com/svn/trunk/updatesite.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:33.836
+!MESSAGE No repository found at https://github.com/eclipse-jetty/eclipse-jetty-plugin/tree/master/plugins.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-07-21 09:48:33.914
+!MESSAGE No repository found at http://eclipse-jetty.github.io/update/.
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2017-07-21 10:13:15.302
+!MESSAGE Switching to global default account
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:14:23.992
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4242821406523728511.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:14:24.558
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda4242821406523728511.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:14:30.749
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill created.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:14:30.788
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:14:30.789
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:18:05.057
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3144681736050011557.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:18:05.550
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda3144681736050011557.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:18:13.136
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:18:13.146
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:18:13.146
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:39:00.878
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda7613108998254187144.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:39:01.394
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda7613108998254187144.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:39:08.567
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:39:08.577
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:39:08.577
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:52:35.812
+!MESSAGE Exporting project [AlexaKitchenSkill] to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2194837730953470550.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:52:36.342
+!MESSAGE Project exported to /var/folders/3f/167l4kp520zb27p9zmnbtqf8dr4ryc/T/AlexaKitchenSkill-lambda2194837730953470550.zip
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:52:43.167
+!MESSAGE Function arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill updated.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:52:43.178
+!MESSAGE Project metadata saved.
+
+!ENTRY com.amazonaws.eclipse.lambda 1 0 2017-07-21 10:52:43.178
+!MESSAGE Upload complete! Funtion arn arn:aws:lambda:us-east-1:053924322775:function:AlexaKitchenSkill

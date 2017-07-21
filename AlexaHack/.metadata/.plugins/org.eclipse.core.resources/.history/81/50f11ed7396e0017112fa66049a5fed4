@@ -1,0 +1,9 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+public class AlexaIntent {
+	private Intent intents;
+
+	public final class Intent {
+		private String intent;
+	}
+}

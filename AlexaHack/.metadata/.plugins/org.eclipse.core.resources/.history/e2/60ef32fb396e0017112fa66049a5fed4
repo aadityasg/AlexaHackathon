@@ -1,0 +1,29 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class AlexaIntent {
+	@JsonProperty("intents")
+	private IntentDetails intents;
+
+	public IntentDetails getIntents() {
+		return intents;
+	}
+
+	public void setIntents(Intent intents) {
+		this.intents = intents;
+	}
+
+	public final class IntentDetails {
+		@JsonProperty("intent")
+		private String intent;
+
+		public String getIntent() {
+			return intent;
+		}
+
+		public void setIntent(String intent) {
+			this.intent = intent;
+		}
+	}
+}

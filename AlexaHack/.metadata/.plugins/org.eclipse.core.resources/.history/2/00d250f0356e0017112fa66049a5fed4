@@ -1,0 +1,30 @@
+package com.ninja.alexa.skill.kitchen;
+
+import com.amazonaws.Request;
+import com.amazonaws.http.AmazonHttpClient;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+public class LambdaFunctionHandler implements RequestHandler<String, String> {
+	private AmazonHttpClient client = AmazonHttpClient.builder().build();
+
+	private static final String API_ENDPOINT = "http://food2fork.com/api/search";
+
+	public LambdaFunctionHandler() {
+	}
+
+	@Override
+	public String handleRequest(String event, Context context) {
+		context.getLogger().log("Received Event: " + event);
+		try {
+			Request<?> request = new Request<>().setEndpoint(API_ENDPOINT);
+
+			client.execute(request, responseHandler, errorResponseHandler, executionContext);
+			return "Hello, World!";
+		} catch (Exception e) {
+			e.printStackTrace();
+			context.getLogger().log("Dang!");
+			throw e;
+		}
+	}
+}

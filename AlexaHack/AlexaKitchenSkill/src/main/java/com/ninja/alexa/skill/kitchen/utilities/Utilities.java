@@ -1,0 +1,55 @@
+package com.ninja.alexa.skill.kitchen.utilities;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.Base64.Decoder;
+import java.util.zip.GZIPInputStream;
+
+import com.amazonaws.annotation.ThreadSafe;
+import com.amazonaws.util.IOUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+/**
+ * Application Utilities
+ * 
+ * @author rohagraw
+ * @version 2017-07-21
+ */
+@ThreadSafe
+public final class Utilities {
+	private static final Decoder BASE64_DECODER = Base64.getDecoder();
+	private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
+
+	/********** Constructor **********/
+	private Utilities() {
+		/* Private Constructor */
+	}
+
+	/**
+	 * Thread Safe Base64 Decoder Instance
+	 * 
+	 * @return base64Decoder
+	 */
+	public static Decoder getBase64Decoder() {
+		return BASE64_DECODER;
+	}
+
+	/**
+	 * Thread Safe JSON Mapper Instance
+	 * 
+	 * @return base64Decoder
+	 */
+	public static ObjectMapper getJSONMapper() {
+		return JSON_MAPPER;
+	}
+
+	/**
+	 * DeCompress GZIP File & Read Contents
+	 * 
+	 * @return contentString
+	 */
+	public static String getGZContent(byte[] data) throws IOException {
+		return IOUtils.toString(new GZIPInputStream(new ByteArrayInputStream(data)));
+	}
+}

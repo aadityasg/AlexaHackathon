@@ -1,0 +1,40 @@
+package com.ninja.alexa.skill.kitchen;
+
+import java.net.URI;
+
+import com.amazonaws.DefaultRequest;
+import com.amazonaws.Request;
+import com.amazonaws.http.AmazonHttpClient;
+import com.amazonaws.http.HttpMethodName;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+public class LambdaFunctionHandler implements RequestHandler<String, String> {
+	private AmazonHttpClient client = AmazonHttpClient.builder().build();
+
+	private static final String API_ENDPOINT = "http://food2fork.com/api/search?";
+	private static final String API_KEY = "key=b4f8a48d092e117bd2e925295ef11a0f";
+	private static final String API_QUERY = "&q=";
+
+	private Request<?> generateRequest(final String queryString) {
+		Request<Void> request = new DefaultRequest<>(API_ENDPOINT);
+		request.setEndpoint(URI.create(API_ENDPOINT + API_KEY + API_QUERY + queryString));
+		request.setHttpMethod(HttpMethodName.GET);
+		return request;
+	}
+
+	@Override
+	public String handleRequest(String event, Context context) {
+		context.getLogger().log("Received Event: " + event);
+		try {
+			Request<?> request = new RequestB.setEndpoint(API_ENDPOINT);
+
+			client.execute(request, responseHandler, errorResponseHandler, executionContext);
+			return "Hello, World!";
+		} catch (Exception e) {
+			e.printStackTrace();
+			context.getLogger().log("Dang!");
+			throw e;
+		}
+	}
+}

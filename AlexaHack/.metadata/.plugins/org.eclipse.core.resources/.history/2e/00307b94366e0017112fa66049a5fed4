@@ -1,0 +1,29 @@
+package com.amazon.creative.experiment.lambda.aws.handler;
+
+import com.amazon.creative.experiment.lambda.utilities.Constants;
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.http.HttpResponse;
+import com.amazonaws.http.HttpResponseHandler;
+
+/**
+ * ElasticSearch Error Handler
+ * 
+ * @author rohagraw
+ * @version 2017-07-11
+ */
+public class ElasticSearchErrorHandler implements HttpResponseHandler<AmazonServiceException> {
+    /************************************* Override(s) **************************************/
+    @Override
+    public AmazonServiceException handle(HttpResponse response) {
+        AmazonServiceException amazonServiceException = new AmazonServiceException(
+                Constants.ERR_ELASTICSEARCH_QUERY);
+        amazonServiceException.setStatusCode(response.getStatusCode());
+        amazonServiceException.setErrorCode(response.getStatusText());
+        return amazonServiceException;
+    }
+
+    @Override
+    public boolean needsConnectionLeftOpen() {
+        return false;
+    }
+}

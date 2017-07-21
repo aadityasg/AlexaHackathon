@@ -1,0 +1,69 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class InputEvent {
+	@JsonProperty("session")
+	private Session session;
+	private Request request;
+	private String version;
+
+	private final class Session {
+		@JsonProperty("sessionId")
+		private String sessionId;
+
+		@JsonProperty("application")
+		private Application application;
+
+		@JsonProperty("attributes")
+		private Attributes attributes;
+
+		@JsonProperty("user")
+		private User user;
+
+		@JsonProperty("new")
+		private boolean sessionType;
+
+		private final class Application {
+			@JsonProperty("applicationId")
+			private String applicationId;
+		}
+
+		private final class Attributes {
+			private String attr;
+		}
+
+		private final class User {
+			@JsonProperty("userId")
+			private String userId;
+		}
+	}
+
+	private final class Request {
+		private String type;
+		private String requestId;
+		private String locale;
+		private String timestamp;
+	}
+
+	{
+        "": {
+          "sessionId": "SessionId.3dce9732-cf5b-4193-9145-aa3e69d5137e",
+          "application": {
+            "applicationId": "amzn1.ask.skill.81ab0540-6d0c-4a8a-8ec9-323a7bf9cc22"
+          },
+          "attributes": {},
+          "user": {
+            "userId": "amzn1.ask.account.AGMLE2R4NEZOVV2JG63XK37HI5NSTOB4CBCZJBRN2YTBKSFHUNZF5KBWQ7ZS6LDBGQCN4KKO3CLVXXGOCXJ2B3ERVT6T3ZZHLLMZBGGQ4MBF4TPJO7WHOC7RH2UOH6WIE6VWB6B62JUJ76ZICURTW2RHA57MX4AYP47AJFYA7SRVWQ6I4D7OG4ME7JOQ325WGXSQFRLPLDKADUA"
+          },
+          "new": true
+        },
+        "request": {
+          "type": "LaunchRequest",
+          "requestId": "EdwRequestId.4aa85d18-77e6-4f99-9b39-2152f508c524",
+          "locale": "en-US",
+          "timestamp": "2017-07-21T17:36:30Z"
+        },
+        "version": "1.0"
+      }
+}

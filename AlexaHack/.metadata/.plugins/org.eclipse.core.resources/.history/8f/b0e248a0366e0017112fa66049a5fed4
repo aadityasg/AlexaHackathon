@@ -1,0 +1,33 @@
+package com.amazon.creative.experiment.lambda.aws.handler;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.commons.io.IOUtils;
+
+import com.amazon.creative.experiment.lambda.exceptions.ElasticSearchQueryException;
+import com.amazonaws.http.HttpResponse;
+import com.amazonaws.http.HttpResponseHandler;
+
+/**
+ * ElasticSearch Response Handler
+ * 
+ * @author rohagraw
+ * @version 2017-07-11
+ */
+public class ElasticSearchResponseHandler implements HttpResponseHandler<String> {
+    /************************************* Override(s) **************************************/
+    @Override
+    public String handle(HttpResponse response) throws Exception {
+        try (InputStream responseStream = response.getContent()) {
+            return IOUtils.toString(responseStream);
+        } catch (IOException ex) {
+            throw new ElasticSearchQueryException(ex);
+        }
+    }
+
+    @Override
+    public boolean needsConnectionLeftOpen() {
+        return true;
+    }
+}
