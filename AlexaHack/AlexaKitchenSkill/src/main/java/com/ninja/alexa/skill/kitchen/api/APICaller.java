@@ -1,6 +1,7 @@
 package com.ninja.alexa.skill.kitchen.api;
 
 import java.net.URI;
+import java.util.Map;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.DefaultRequest;
@@ -10,7 +11,6 @@ import com.amazonaws.http.AmazonHttpClient;
 import com.amazonaws.http.HttpMethodName;
 import com.ninja.alexa.skill.kitchen.aws.handlers.AWSErrorHandler;
 import com.ninja.alexa.skill.kitchen.aws.handlers.AWSResponseHandler;
-import com.ninja.alexa.skill.kitchen.utilities.Constants;
 
 /**
  * API Caller
@@ -27,9 +27,10 @@ public class APICaller {
 	 * @param queryString
 	 * @return Request<?>
 	 */
-	public Request<?> generateRequest(final String queryString) {
-		Request<?> request = new DefaultRequest<>(Constants.API_ENDPOINT);
-		request.setEndpoint(URI.create(Constants.API_ENDPOINT + Constants.API_KEY + Constants.API_QUERY + queryString));
+	public Request<?> generateRequest(final String endpoint, final URI queryString, Map<String, String> headers) {
+		Request<?> request = new DefaultRequest<>(endpoint);
+		request.setHeaders(headers);
+		request.setEndpoint(queryString);
 		request.setHttpMethod(HttpMethodName.GET);
 		return request;
 	}

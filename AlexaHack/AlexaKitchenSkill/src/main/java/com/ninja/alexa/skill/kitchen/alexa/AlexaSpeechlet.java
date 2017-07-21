@@ -1,9 +1,13 @@
 package com.ninja.alexa.skill.kitchen.alexa;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +26,7 @@ import com.amazon.speech.ui.Reprompt;
 import com.amazon.speech.ui.SimpleCard;
 import com.amazonaws.Response;
 import com.amazonaws.util.CollectionUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.ninja.alexa.skill.kitchen.api.APICaller;
 import com.ninja.alexa.skill.kitchen.aws.services.DynamoDBService;
@@ -37,7 +42,7 @@ public class AlexaSpeechlet implements Speechlet {
 	private Logger LOGGER = LoggerFactory.getLogger(AlexaSpeechlet.class);
 	private DynamoDBService dbService = new DynamoDBService();
 	private APICaller apiCaller = new APICaller();
-	private ObjectReader recipeReader = Utilities.getJSONMapper().readerFor(RecipeResponse.class);
+	private ObjectReader recipeReader = Utilities.getJSONMapper().readerFor(RecipeResponse[].class);
 
 	/**
 	 * Creates and returns a {@code SpeechletResponse} with a welcome message.
@@ -125,6 +130,14 @@ public class AlexaSpeechlet implements Speechlet {
 		dbService.insertEntry(getDynamoDBObject(sessionId, stateType, stateInput));
 	}
 
+	/**
+	 * Get DynamoDB Object
+	 * 
+	 * @param sessionId
+	 * @param stateType
+	 * @param stateInput
+	 * @return
+	 */
 	private AlexaSessionInfo getDynamoDBObject(final String sessionId, final String stateType,
 			final String stateInput) {
 		AlexaSessionInfo alexaSessionInfo = new AlexaSessionInfo();
@@ -134,81 +147,104 @@ public class AlexaSpeechlet implements Speechlet {
 		return alexaSessionInfo;
 	}
 
+	private SpeechletResponse getCuisineIntent(Intent intent, Session session) {
+		session.setAttribute("nextIntent", "SpiceLevelIntent");
+		session.setAttribute("cuisineName", intent.getSlots().get("Cusine").getValue());
+		storeDBObject(session.getSessionId(), "CusineNameIntent", intent.getSlots().get("Cusine").getValue());
+		return getResponse("Great Choice! Let's get you started with some " + intent.getSlots().get("Cusine").getValue()
+				+ " cuisine today. How spicy would you like it to be?");
+	}
+
+	private SpeechletResponse getSpiceIntent(Intent intent, Session session) {
+		session.setAttribute("nextIntent", "PresentIngredientsIntent");
+		session.setAttribute("spiceLevel", intent.getSlots().get("SpiceLevel").getValue());
+		storeDBObject(session.getSessionId(), "SpiceLevelIntent", intent.getSlots().get("SpiceLevel").getValue());
+		return getResponse("Awesome! Let's cook some " + intent.getSlots().get("SpiceLevel").getValue()
+				+ " food today. What ingredients do you have?");
+	}
+
+	private String getIngredients(List<String> ingredientsList) {
+		return ingredientsList.toString().replace(" ", "").replace("[", "").replace("]", "");
+	}
+
+	private RecipeResponse[] callRecipeAPI(final String ingredients) throws JsonProcessingException, IOException {
+		Map<String, String> headers = new HashMap<>();
+		headers.put("X-Mashape-Key", "xqOt7PKxyimshFumkS9zXFWmyyhYp1QrEZ5jsnropLkpoEYBsr");
+		headers.put("Accept", "application/json");
+
+		Response<String> response = apiCaller.sendRequest(apiCaller.generateRequest("fooBar",
+				URI.create(
+						"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="
+								+ URLEncoder.encode(ingredients, "UTF-8")),
+				headers));
+
+		System.out.println(response.getAwsResponse());
+		return recipeReader.readValue(response.getAwsResponse());
+	}
+
+	private void callRecipeGetAPI(final String recipeId) throws JsonProcessingException, IOException {
+		Map<String, String> headers = new HashMap<>();
+		headers.put("X-Mashape-Key", "xqOt7PKxyimshFumkS9zXFWmyyhYp1QrEZ5jsnropLkpoEYBsr");
+		headers.put("Accept", "application/json");
+
+		Response<String> response = apiCaller.sendRequest(apiCaller.generateRequest("fooBar",
+				URI.create("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeId
+						+ "/information?includenutrition=true"),
+				headers));
+
+		System.out.println(response.getAwsResponse());
+		// return recipeReader.readValue(response.getAwsResponse());
+	}
+
+	private SpeechletResponse getIngredientIntent(Intent intent, Session session) throws SpeechletException {
+		session.setAttribute("nextIntent", "SelectRecipeIntent");
+		session.setAttribute("ingredients", intent.getSlots().get("Ingredient").getValue());
+		String[] ingredientsArray = intent.getSlots().get("Ingredient").getValue().split(" ");
+		List<String> ingredientsList = new ArrayList<>();
+
+		/* Iterate Array */
+		for (final String ingredient : ingredientsArray) {
+			ingredientsList.add(ingredient);
+		}
+
+		System.out.println("Before Try");
+		try {
+			RecipeResponse[] recipeResponse = callRecipeAPI(getIngredients(ingredientsList));
+			while (!CollectionUtils.isNullOrEmpty(ingredientsList)
+					&& (null == recipeResponse || recipeResponse.length == 0)) {
+				ingredientsList.remove(new Random().nextInt(ingredientsList.size()));
+				recipeResponse = callRecipeAPI(getIngredients(ingredientsList));
+			}
+
+			if (null == recipeResponse || recipeResponse.length == 0) {
+				return getResponse("Sorry, I haven't found any recipes. Would you like to cook something else?");
+			}
+
+			storeDBObject(session.getSessionId(), "PresentIngredientsIntent", getIngredients(ingredientsList));
+
+			System.out.println("Title: " + recipeResponse[0].getTitle());
+			callRecipeGetAPI(String.valueOf(recipeResponse[0].getId()));
+			return getResponse("I have found a great recipe for you. It's " + recipeResponse[0].getTitle()
+					+ " Would you like to hear it?");
+		} catch (IOException e) {
+			System.out.println(e);
+			throw new SpeechletException("Invalid Intent");
+		}
+	}
+
 	@Override
 	public SpeechletResponse onIntent(IntentRequest request, Session session) throws SpeechletException {
-		System.out.println("On Intenet: " + request);
+		LOGGER.debug("Intent Arrived With Session ID: " + session.getSessionId());
 
 		Intent intent = request.getIntent();
 		String intentName = (intent != null) ? intent.getName() : null;
 
-		System.out.println(intentName);
-
 		if ("CusineNameIntent".equals(intentName)) {
-			session.setAttribute("nextIntent", "SpiceLevelIntent");
-			session.setAttribute("cuisineName", intent.getSlots().get("Cusine").getValue());
-			storeDBObject(session.getSessionId(), "CusineNameIntent", intent.getSlots().get("Cusine").getValue());
-			return getResponse(
-					"Great Choice! Let's get you started with some " + intent.getSlots().get("Cusine").getValue()
-							+ " cuisine today. How spicy would you like it to be?");
+			return getCuisineIntent(intent, session);
 		} else if ("SpiceLevelIntent".equals(intentName)) {
-			session.setAttribute("nextIntent", "PresentIngredientsIntent");
-			session.setAttribute("spiceLevel", intent.getSlots().get("SpiceLevel").getValue());
-			storeDBObject(session.getSessionId(), "SpiceLevelIntent", intent.getSlots().get("SpiceLevel").getValue());
-			return getResponse("Awesome! Let's cook some " + intent.getSlots().get("SpiceLevel").getValue()
-					+ " food today. What ingredients do you have?");
+			return getSpiceIntent(intent, session);
 		} else if ("PresentIngredientsIntent".equals(intentName)) {
-			session.setAttribute("nextIntent", "SelectRecipeIntent");
-			session.setAttribute("ingredients", intent.getSlots().get("Ingredient").getValue());
-
-			System.out.println(intent.getSlots().get("Ingredient").getValue());
-
-			storeDBObject(session.getSessionId(), "PresentIngredientsIntent",
-					intent.getSlots().get("Ingredient").getValue().replace(" ", ","));
-			String ingredients = intent.getSlots().get("Ingredient").getValue().replace(" ", ",");
-
-			LOGGER.info("Iteration #1");
-			try {
-				Response<String> response = apiCaller
-						.sendRequest(apiCaller.generateRequest(URLEncoder.encode(ingredients, "UTF-8")));
-				RecipeResponse recipeResponse = recipeReader.readValue(response.getAwsResponse());
-
-				if (null == recipeResponse || CollectionUtils.isNullOrEmpty(recipeResponse.getRecipes())) {
-					String[] ingredientsArray = intent.getSlots().get("Ingredient").getValue().split(" ");
-					List<String> ingredientsList = new ArrayList<>();
-
-					for (final String ing : ingredientsArray) {
-						ingredientsList.add(ing);
-					}
-
-					/* Call Again */
-					while (!CollectionUtils.isNullOrEmpty(ingredientsList)
-							&& CollectionUtils.isNullOrEmpty(recipeResponse.getRecipes())) {
-						LOGGER.info("Next Iteration...");
-						System.out.println("Next Iteration...");
-						ingredientsList.remove((int) (Math.random() * ingredientsList.size()));
-						response = apiCaller.sendRequest(apiCaller.generateRequest(URLEncoder.encode(
-								ingredientsList.toString().replace(" ", "").replace("[", "").replace("]", ""),
-								"UTF-8")));
-						LOGGER.info(ingredientsList.toString().replace(" ", "").replace("[", "").replace("]", ""));
-						System.out
-								.println(ingredientsList.toString().replace(" ", "").replace("[", "").replace("]", ""));
-						recipeResponse = recipeReader.readValue(response.getAwsResponse());
-					}
-
-					if (null == recipeResponse || CollectionUtils.isNullOrEmpty(recipeResponse.getRecipes())) {
-						return getResponse(
-								"Sorry, I haven't found any recipes. Would you like to cook something else?");
-					}
-				}
-
-				return getResponse("I have found a great recipe for you. It's "
-						+ recipeResponse.getRecipes().get(0).getTitle() + " Would you like to hear it?");
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println(e);
-				System.err.println(e);
-				throw new SpeechletException("Invalid Intent");
-			}
+			return getIngredientIntent(intent, session);
 		} else if ("AMAZON.HelpIntent".equals(intentName)) {
 			return getHelpResponse();
 		} else {

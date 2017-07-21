@@ -1,7 +1,5 @@
 package com.ninja.alexa.skill.kitchen.model;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -13,61 +11,80 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RecipeResponse {
-	@JsonProperty("count")
-	private long count;
+	@JsonProperty("id")
+	private long id;
 
-	@JsonProperty("recipes")
-	private List<Recipes> recipes;
+	@JsonProperty("title")
+	private String title;
 
-	public long getCount() {
-		return count;
+	@JsonProperty("image")
+	private String image;
+
+	@JsonProperty("imageType")
+	private String imageType;
+
+	@JsonProperty("usedIngredientCount")
+	private long usedIngredientCount;
+
+	@JsonProperty("missedIngredientCount")
+	private long missedIngredientCount;
+
+	@JsonProperty("likes")
+	private long likes;
+
+	public long getId() {
+		return id;
 	}
 
-	public void setCount(long count) {
-		this.count = count;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public List<Recipes> getRecipes() {
-		return recipes;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setRecipes(List<Recipes> recipes) {
-		this.recipes = recipes;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	@JsonIgnoreProperties(ignoreUnknown = true)
-	public static final class Recipes {
-		@JsonProperty("title")
-		private String title;
+	public String getImage() {
+		return image;
+	}
 
-		@JsonProperty("source_url")
-		private String sourceURL;
+	public void setImage(String image) {
+		this.image = image;
+	}
 
-		@JsonProperty("social_rank")
-		private String socialRank;
+	public String getImageType() {
+		return imageType;
+	}
 
-		public String getTitle() {
-			return title;
-		}
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
 
-		public void setTitle(String title) {
-			this.title = title;
-		}
+	public long getUsedIngredientCount() {
+		return usedIngredientCount;
+	}
 
-		public String getSourceURL() {
-			return sourceURL;
-		}
+	public void setUsedIngredientCount(long usedIngredientCount) {
+		this.usedIngredientCount = usedIngredientCount;
+	}
 
-		public void setSourceURL(String sourceURL) {
-			this.sourceURL = sourceURL;
-		}
+	public long getMissedIngredientCount() {
+		return missedIngredientCount;
+	}
 
-		public String getSocialRank() {
-			return socialRank;
-		}
+	public void setMissedIngredientCount(long missedIngredientCount) {
+		this.missedIngredientCount = missedIngredientCount;
+	}
 
-		public void setSocialRank(String socialRank) {
-			this.socialRank = socialRank;
-		}
+	public long getLikes() {
+		return likes;
+	}
+
+	public void setLikes(long likes) {
+		this.likes = likes;
 	}
 }
