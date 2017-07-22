@@ -1,0 +1,5 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+public class RecipeSummary {
+
+}

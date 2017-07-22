@@ -1,0 +1,8 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class RecipeSummary {
+
+}

@@ -32,6 +32,7 @@ import com.amazon.speech.ui.Reprompt;
 import com.amazon.speech.ui.SimpleCard;
 import com.amazonaws.Response;
 import com.amazonaws.util.CollectionUtils;
+import com.amazonaws.util.StringUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -41,6 +42,7 @@ import com.ninja.alexa.skill.kitchen.model.AlexaSessionInfo;
 import com.ninja.alexa.skill.kitchen.model.RecipeInfoResponse;
 import com.ninja.alexa.skill.kitchen.model.RecipeInfoResponse.AnalyzedInstructions.RecipeStep;
 import com.ninja.alexa.skill.kitchen.model.RecipeResponse;
+import com.ninja.alexa.skill.kitchen.model.RecipeSummary;
 import com.ninja.alexa.skill.kitchen.utilities.Utilities;
 
 /**
@@ -54,6 +56,7 @@ public class AlexaSpeechlet implements Speechlet {
 	private ObjectReader recipeReader = Utilities.getJSONMapper().readerFor(RecipeResponse[].class);
 	private ObjectReader recipeInfoReader = Utilities.getJSONMapper().readerFor(RecipeInfoResponse.class);
 	private ObjectWriter recipeInfoWriter = Utilities.getJSONMapper().writerFor(RecipeInfoResponse.class);
+	private ObjectReader recipeSummaryReader = Utilities.getJSONMapper().readerFor(RecipeSummary.class);
 
 	/**
 	 * Creates and returns a {@code SpeechletResponse} with a welcome message.
@@ -119,12 +122,25 @@ public class AlexaSpeechlet implements Speechlet {
 		return SpeechletResponse.newAskResponse(speech, reprompt, card);
 	}
 
+	private SpeechletResponse getFinalResponse(final String speechText) {
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("Alexa Kitchen Helper");
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		return SpeechletResponse.newTellResponse(speech, card);
+	}
+
 	private SpeechletResponse getHelpResponse() {
 		String speechText = "You can say hello to me!";
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
-		card.setTitle("HelloWorld");
+		card.setTitle("Alexa Kitchen Helper");
 
 		card.setContent(speechText);
 
@@ -243,13 +259,16 @@ public class AlexaSpeechlet implements Speechlet {
 							session.setAttribute("steps", recipeInfoWriter.writeValueAsString(recipeInfoResponse));
 						}
 						int healthScore = (int) recipeInfoResponse.getHealthScore();
+						session.setAttribute("recipeId", recipeInfoResponse.getId());
 						return getResponse((healthScore > 0
 								? "I have found a great recipe for you with health score of " + healthScore
 								: "I have found a great recipe for you today.") + ". It's "
 								+ recipeInfoResponse.getTitle()
 								+ (CollectionUtils.isNullOrEmpty(recipeInfoResponse.getAnalyzedInstructions()) ? " "
-										: ". It will take approximately " + (int) recipeInfoResponse.getCookingMinutes()
-												+ " minutes. Would you like to hear it?"));
+										: (recipeInfoResponse.getCookingMinutes() > 0
+												? ". It will take approximately "
+														+ (int) recipeInfoResponse.getCookingMinutes() + " minutes."
+												: "") + " Would you like to hear it?"));
 					}
 				}
 			}
@@ -275,11 +294,29 @@ public class AlexaSpeechlet implements Speechlet {
 			throws SpeechletException, JsonProcessingException, IOException {
 		RecipeInfoResponse recipeInfoResponse = recipeInfoReader.readValue(session.getAttribute("steps").toString());
 		StringBuilder sb = new StringBuilder();
+
+		String recipeSummaryString = null;
+		try {
+			String recipeId = session.getAttribute("recipeId").toString();
+			RecipeSummary recipeSummary = summarizeRecipe(recipeId);
+			recipeSummaryString = recipeSummary.getSummary();
+			recipeSummaryString = recipeSummaryString.replace("<b>", "").replace("</b>", "").replace("href", "")
+					.replace("/", "");
+			recipeSummaryString = recipeSummaryString.substring(0, recipeSummaryString.indexOf("http"));
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+
+		if (!StringUtils.isNullOrEmpty(recipeSummaryString)) {
+			sb.append("Here is the brief summary " + recipeSummaryString + " Here are the steps to make it! ");
+
+		}
 		for (final RecipeStep recipeStep : recipeInfoResponse.getAnalyzedInstructions().get(0).getSteps()) {
 			sb.append(" Step " + recipeStep.getNumber() + " is " + recipeStep.getStep());
 		}
-		return getResponse((null == intent || "no".equalsIgnoreCase(intent.getSlots().get("Recipe").getValue()))
-				? "Thanks for using Kitchen Helper. Have a good day." : sb.toString());
+		return getFinalResponse((null == intent || "no".equalsIgnoreCase(intent.getSlots().get("Recipe").getValue()))
+				? " Thanks for using Kitchen Helper. Have a good day."
+				: sb.toString() + " Thanks for using Kitchen Helper. Have a good day!");
 	}
 
 	@Override
@@ -354,6 +391,19 @@ public class AlexaSpeechlet implements Speechlet {
 				headers));
 
 		return recipeReader.readValue(response.getAwsResponse());
+	}
+
+	private RecipeSummary summarizeRecipe(final String recipeId) throws JsonProcessingException, IOException {
+		Map<String, String> headers = new HashMap<>();
+		headers.put("X-Mashape-Key", "xqOt7PKxyimshFumkS9zXFWmyyhYp1QrEZ5jsnropLkpoEYBsr");
+		headers.put("Accept", "application/json");
+
+		Response<String> response = apiCaller.sendRequest(apiCaller.generateRequest("fooBar",
+				URI.create(
+						"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeId + "/summary"),
+				headers));
+
+		return recipeSummaryReader.readValue(response.getAwsResponse());
 	}
 
 	public static final class RecipeCall implements Callable<RecipeInfoResponse> {
