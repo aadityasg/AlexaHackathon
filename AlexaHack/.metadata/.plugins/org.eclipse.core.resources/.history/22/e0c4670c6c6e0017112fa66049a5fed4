@@ -1,0 +1,69 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class RecipeInfoResponse {
+	@JsonProperty("lowFodmap")
+	private boolean lowFodmap;
+
+	@JsonProperty("weightWatcherSmartPoints")
+	private double weightWatcherSmartPoints;
+
+	@JsonProperty("sustainable")
+	private boolean sustainable;
+
+	@JsonProperty("veryPopular")
+	private boolean veryPopular;
+
+	@JsonProperty("cheap")
+	private boolean cheap;
+
+	@JsonProperty("veryHealthy")
+	private boolean veryHealthy;
+
+	@JsonProperty("dairyFree")
+	private boolean dairyFree;
+
+	@JsonProperty("glutenFree")
+	private boolean glutenFree;
+
+	@JsonProperty("vegan")
+	private boolean vegan;
+
+	@JsonProperty("vegetarian")
+	private boolean vegetarian;
+
+	@JsonProperty("whole30")
+	private boolean whole30;
+
+	@JsonProperty("ketogenic")
+	private boolean ketogenic;
+
+	@JsonProperty("servings")
+	private double servings;
+
+	@JsonProperty("preparationMinutes")
+	private double preparationMinutes;
+
+	@JsonProperty("cookingMinutes")
+	private double cookingMinutes;
+
+	@JsonProperty("healthScore")
+	private double healthScore;
+
+	@JsonProperty("aggregateLikes")
+	private int aggregateLikes;
+
+	@JsonProperty("spoonacularScore")
+	private double spoonacularScore;
+
+	@JsonProperty("pricePerServing")
+	private double pricePerServing;
+
+	@JsonProperty("sourceUrl")
+	private String sourceUrl;
+
+	@JsonProperty("spoonacularSourceUrl")
+	private String spoonacularSourceUrl;
+
+}

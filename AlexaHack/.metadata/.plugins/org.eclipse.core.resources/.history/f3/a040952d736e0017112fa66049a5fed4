@@ -1,0 +1,424 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class RecipeInfoResponse {
+	@JsonProperty("lowFodmap")
+	private boolean lowFodmap;
+
+	@JsonProperty("weightWatcherSmartPoints")
+	private double weightWatcherSmartPoints;
+
+	@JsonProperty("sustainable")
+	private boolean sustainable;
+
+	@JsonProperty("veryPopular")
+	private boolean veryPopular;
+
+	@JsonProperty("cheap")
+	private boolean cheap;
+
+	@JsonProperty("veryHealthy")
+	private boolean veryHealthy;
+
+	@JsonProperty("dairyFree")
+	private boolean dairyFree;
+
+	@JsonProperty("glutenFree")
+	private boolean glutenFree;
+
+	@JsonProperty("vegan")
+	private boolean vegan;
+
+	@JsonProperty("vegetarian")
+	private boolean vegetarian;
+
+	@JsonProperty("whole30")
+	private boolean whole30;
+
+	@JsonProperty("ketogenic")
+	private boolean ketogenic;
+
+	@JsonProperty("servings")
+	private double servings;
+
+	@JsonProperty("preparationMinutes")
+	private double preparationMinutes;
+
+	@JsonProperty("cookingMinutes")
+	private double cookingMinutes;
+
+	@JsonProperty("healthScore")
+	private double healthScore;
+
+	@JsonProperty("aggregateLikes")
+	private int aggregateLikes;
+
+	@JsonProperty("spoonacularScore")
+	private double spoonacularScore;
+
+	@JsonProperty("pricePerServing")
+	private double pricePerServing;
+
+	@JsonProperty("sourceUrl")
+	private String sourceUrl;
+
+	@JsonProperty("spoonacularSourceUrl")
+	private String spoonacularSourceUrl;
+
+	@JsonProperty("extendedIngredients")
+	private List<ExtendedIngredients> extendedIngredients;
+
+	@JsonIgnoreProperties(ignoreUnknown = true)
+	public static final class ExtendedIngredients {
+		@JsonProperty("id")
+		private long id;
+
+		@JsonProperty("aisle")
+		private String aisle;
+
+		@JsonProperty("name")
+		private String name;
+
+		@JsonProperty("amount")
+		private double amount;
+
+		@JsonProperty("unit")
+		private String unit;
+
+		@JsonProperty("originalString")
+		private String originalString;
+
+		public long getId() {
+			return id;
+		}
+
+		public void setId(long id) {
+			this.id = id;
+		}
+
+		public String getAisle() {
+			return aisle;
+		}
+
+		public void setAisle(String aisle) {
+			this.aisle = aisle;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public double getAmount() {
+			return amount;
+		}
+
+		public void setAmount(double amount) {
+			this.amount = amount;
+		}
+
+		public String getUnit() {
+			return unit;
+		}
+
+		public void setUnit(String unit) {
+			this.unit = unit;
+		}
+
+		public String getOriginalString() {
+			return originalString;
+		}
+
+		public void setOriginalString(String originalString) {
+			this.originalString = originalString;
+		}
+	}
+
+	@JsonProperty("id")
+	private long id;
+
+	@JsonProperty("title")
+	private String title;
+
+	@JsonProperty("readyInMinutes")
+	private long readyInMinutes;
+
+	@JsonProperty("cuisines")
+	private String[] cuisines;
+
+	@JsonProperty("dishTypes")
+	private String[] dishTypes;
+
+	@JsonProperty("diets")
+	private String[] diets;
+
+	@JsonProperty("instructions")
+	private String instructions;
+
+	@JsonProperty("analyzedInstructions")
+	private String[] analyzedInstructions;
+	
+	public static final Class analyzedInstructions {
+		@JsonProperty("name")
+		private String name;
+		
+		@JsonProperty("steps")
+		private List<RecipeStep> steps;
+		
+		public static final Class RecipeStep {
+			@JsonProperty("name")
+			private String name;
+			
+			@JsonProperty("steps")
+			private List<Step> steps;
+		}
+	}
+
+	public boolean isLowFodmap() {
+		return lowFodmap;
+	}
+
+	public void setLowFodmap(boolean lowFodmap) {
+		this.lowFodmap = lowFodmap;
+	}
+
+	public double getWeightWatcherSmartPoints() {
+		return weightWatcherSmartPoints;
+	}
+
+	public void setWeightWatcherSmartPoints(double weightWatcherSmartPoints) {
+		this.weightWatcherSmartPoints = weightWatcherSmartPoints;
+	}
+
+	public boolean isSustainable() {
+		return sustainable;
+	}
+
+	public void setSustainable(boolean sustainable) {
+		this.sustainable = sustainable;
+	}
+
+	public boolean isVeryPopular() {
+		return veryPopular;
+	}
+
+	public void setVeryPopular(boolean veryPopular) {
+		this.veryPopular = veryPopular;
+	}
+
+	public boolean isCheap() {
+		return cheap;
+	}
+
+	public void setCheap(boolean cheap) {
+		this.cheap = cheap;
+	}
+
+	public boolean isVeryHealthy() {
+		return veryHealthy;
+	}
+
+	public void setVeryHealthy(boolean veryHealthy) {
+		this.veryHealthy = veryHealthy;
+	}
+
+	public boolean isDairyFree() {
+		return dairyFree;
+	}
+
+	public void setDairyFree(boolean dairyFree) {
+		this.dairyFree = dairyFree;
+	}
+
+	public boolean isGlutenFree() {
+		return glutenFree;
+	}
+
+	public void setGlutenFree(boolean glutenFree) {
+		this.glutenFree = glutenFree;
+	}
+
+	public boolean isVegan() {
+		return vegan;
+	}
+
+	public void setVegan(boolean vegan) {
+		this.vegan = vegan;
+	}
+
+	public boolean isVegetarian() {
+		return vegetarian;
+	}
+
+	public void setVegetarian(boolean vegetarian) {
+		this.vegetarian = vegetarian;
+	}
+
+	public boolean isWhole30() {
+		return whole30;
+	}
+
+	public void setWhole30(boolean whole30) {
+		this.whole30 = whole30;
+	}
+
+	public boolean isKetogenic() {
+		return ketogenic;
+	}
+
+	public void setKetogenic(boolean ketogenic) {
+		this.ketogenic = ketogenic;
+	}
+
+	public double getServings() {
+		return servings;
+	}
+
+	public void setServings(double servings) {
+		this.servings = servings;
+	}
+
+	public double getPreparationMinutes() {
+		return preparationMinutes;
+	}
+
+	public void setPreparationMinutes(double preparationMinutes) {
+		this.preparationMinutes = preparationMinutes;
+	}
+
+	public double getCookingMinutes() {
+		return cookingMinutes;
+	}
+
+	public void setCookingMinutes(double cookingMinutes) {
+		this.cookingMinutes = cookingMinutes;
+	}
+
+	public double getHealthScore() {
+		return healthScore;
+	}
+
+	public void setHealthScore(double healthScore) {
+		this.healthScore = healthScore;
+	}
+
+	public int getAggregateLikes() {
+		return aggregateLikes;
+	}
+
+	public void setAggregateLikes(int aggregateLikes) {
+		this.aggregateLikes = aggregateLikes;
+	}
+
+	public double getSpoonacularScore() {
+		return spoonacularScore;
+	}
+
+	public void setSpoonacularScore(double spoonacularScore) {
+		this.spoonacularScore = spoonacularScore;
+	}
+
+	public double getPricePerServing() {
+		return pricePerServing;
+	}
+
+	public void setPricePerServing(double pricePerServing) {
+		this.pricePerServing = pricePerServing;
+	}
+
+	public String getSourceUrl() {
+		return sourceUrl;
+	}
+
+	public void setSourceUrl(String sourceUrl) {
+		this.sourceUrl = sourceUrl;
+	}
+
+	public String getSpoonacularSourceUrl() {
+		return spoonacularSourceUrl;
+	}
+
+	public void setSpoonacularSourceUrl(String spoonacularSourceUrl) {
+		this.spoonacularSourceUrl = spoonacularSourceUrl;
+	}
+
+	public List<ExtendedIngredients> getExtendedIngredients() {
+		return extendedIngredients;
+	}
+
+	public void setExtendedIngredients(List<ExtendedIngredients> extendedIngredients) {
+		this.extendedIngredients = extendedIngredients;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public long getReadyInMinutes() {
+		return readyInMinutes;
+	}
+
+	public void setReadyInMinutes(long readyInMinutes) {
+		this.readyInMinutes = readyInMinutes;
+	}
+
+	public String[] getCuisines() {
+		return cuisines;
+	}
+
+	public void setCuisines(String[] cuisines) {
+		this.cuisines = cuisines;
+	}
+
+	public String[] getDishTypes() {
+		return dishTypes;
+	}
+
+	public void setDishTypes(String[] dishTypes) {
+		this.dishTypes = dishTypes;
+	}
+
+	public String[] getDiets() {
+		return diets;
+	}
+
+	public void setDiets(String[] diets) {
+		this.diets = diets;
+	}
+
+	public String getInstructions() {
+		return instructions;
+	}
+
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
+	}
+
+	public String[] getAnalyzedInstructions() {
+		return analyzedInstructions;
+	}
+
+	public void setAnalyzedInstructions(String[] analyzedInstructions) {
+		this.analyzedInstructions = analyzedInstructions;
+	}
+}

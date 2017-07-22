@@ -4,10 +4,16 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,9 +34,12 @@ import com.amazonaws.Response;
 import com.amazonaws.util.CollectionUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.ninja.alexa.skill.kitchen.api.APICaller;
 import com.ninja.alexa.skill.kitchen.aws.services.DynamoDBService;
 import com.ninja.alexa.skill.kitchen.model.AlexaSessionInfo;
+import com.ninja.alexa.skill.kitchen.model.RecipeInfoResponse;
+import com.ninja.alexa.skill.kitchen.model.RecipeInfoResponse.AnalyzedInstructions.RecipeStep;
 import com.ninja.alexa.skill.kitchen.model.RecipeResponse;
 import com.ninja.alexa.skill.kitchen.utilities.Utilities;
 
@@ -43,14 +52,29 @@ public class AlexaSpeechlet implements Speechlet {
 	private DynamoDBService dbService = new DynamoDBService();
 	private APICaller apiCaller = new APICaller();
 	private ObjectReader recipeReader = Utilities.getJSONMapper().readerFor(RecipeResponse[].class);
+	private ObjectReader recipeInfoReader = Utilities.getJSONMapper().readerFor(RecipeInfoResponse.class);
+	private ObjectWriter recipeInfoWriter = Utilities.getJSONMapper().writerFor(RecipeInfoResponse.class);
 
 	/**
 	 * Creates and returns a {@code SpeechletResponse} with a welcome message.
 	 *
 	 * @return SpeechletResponse spoken and visual response for the given intent
 	 */
+	@SuppressWarnings("deprecation")
 	private SpeechletResponse getWelcomeResponse() {
-		String speechText = "Welcome to the Kitchen Helper, what type of cuisine would you like to eat today?";
+		int now = new Date().getHours();
+
+		String type;
+		if (now < 12) {
+			type = "breakfast";
+		} else if (now < 17) {
+			type = "lunch";
+		} else {
+			type = "dinner";
+		}
+
+		String speechText = "Welcome to the Kitchen Helper, what type of cuisine would you like to eat for " + type
+				+ "?";
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
@@ -64,7 +88,8 @@ public class AlexaSpeechlet implements Speechlet {
 		// Create reprompt
 		Reprompt reprompt = new Reprompt();
 		PlainTextOutputSpeech speechReprompt = new PlainTextOutputSpeech();
-		speechReprompt.setText("Sorry, I did not understand that. What type of cuisine would you like to eat today?");
+		speechReprompt.setText(
+				"Sorry, I did not understand that. What type of cuisine would you like to eat for " + type + "?");
 		reprompt.setOutputSpeech(speechReprompt);
 
 		return SpeechletResponse.newAskResponse(speech, reprompt, card);
@@ -94,11 +119,6 @@ public class AlexaSpeechlet implements Speechlet {
 		return SpeechletResponse.newAskResponse(speech, reprompt, card);
 	}
 
-	/**
-	 * Creates a {@code SpeechletResponse} for the help intent.
-	 *
-	 * @return SpeechletResponse spoken and visual response for the given intent
-	 */
 	private SpeechletResponse getHelpResponse() {
 		String speechText = "You can say hello to me!";
 
@@ -149,55 +169,25 @@ public class AlexaSpeechlet implements Speechlet {
 
 	private SpeechletResponse getCuisineIntent(Intent intent, Session session) {
 		session.setAttribute("nextIntent", "SpiceLevelIntent");
+		System.out.println("Cuisine Intent: " + intent.getSlots().get("Cusine"));
 		session.setAttribute("cuisineName", intent.getSlots().get("Cusine").getValue());
 		storeDBObject(session.getSessionId(), "CusineNameIntent", intent.getSlots().get("Cusine").getValue());
 		return getResponse("Great Choice! Let's get you started with some " + intent.getSlots().get("Cusine").getValue()
-				+ " cuisine today. How spicy would you like it to be?");
+				+ " cuisine today. Do you have any dietary restrictions?");
 	}
 
 	private SpeechletResponse getSpiceIntent(Intent intent, Session session) {
 		session.setAttribute("nextIntent", "PresentIngredientsIntent");
+		System.out.println("Spice Level Intent: " + intent.getSlots().get("SpiceLevel"));
 		session.setAttribute("spiceLevel", intent.getSlots().get("SpiceLevel").getValue());
 		storeDBObject(session.getSessionId(), "SpiceLevelIntent", intent.getSlots().get("SpiceLevel").getValue());
 		return getResponse("Awesome! Let's cook some " + intent.getSlots().get("SpiceLevel").getValue()
 				+ " food today. What ingredients do you have?");
 	}
 
-	private String getIngredients(List<String> ingredientsList) {
-		return ingredientsList.toString().replace(" ", "").replace("[", "").replace("]", "");
-	}
-
-	private RecipeResponse[] callRecipeAPI(final String ingredients) throws JsonProcessingException, IOException {
-		Map<String, String> headers = new HashMap<>();
-		headers.put("X-Mashape-Key", "xqOt7PKxyimshFumkS9zXFWmyyhYp1QrEZ5jsnropLkpoEYBsr");
-		headers.put("Accept", "application/json");
-
-		Response<String> response = apiCaller.sendRequest(apiCaller.generateRequest("fooBar",
-				URI.create(
-						"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="
-								+ URLEncoder.encode(ingredients, "UTF-8")),
-				headers));
-
-		System.out.println(response.getAwsResponse());
-		return recipeReader.readValue(response.getAwsResponse());
-	}
-
-	private void callRecipeGetAPI(final String recipeId) throws JsonProcessingException, IOException {
-		Map<String, String> headers = new HashMap<>();
-		headers.put("X-Mashape-Key", "xqOt7PKxyimshFumkS9zXFWmyyhYp1QrEZ5jsnropLkpoEYBsr");
-		headers.put("Accept", "application/json");
-
-		Response<String> response = apiCaller.sendRequest(apiCaller.generateRequest("fooBar",
-				URI.create("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeId
-						+ "/information?includenutrition=true"),
-				headers));
-
-		System.out.println(response.getAwsResponse());
-		// return recipeReader.readValue(response.getAwsResponse());
-	}
-
-	private SpeechletResponse getIngredientIntent(Intent intent, Session session) throws SpeechletException {
-		session.setAttribute("nextIntent", "SelectRecipeIntent");
+	private SpeechletResponse getIngredientIntent(Intent intent, Session session)
+			throws SpeechletException, InterruptedException, ExecutionException {
+		session.setAttribute("nextIntent", "SelectRestrictionsIntent");
 		session.setAttribute("ingredients", intent.getSlots().get("Ingredient").getValue());
 		String[] ingredientsArray = intent.getSlots().get("Ingredient").getValue().split(" ");
 		List<String> ingredientsList = new ArrayList<>();
@@ -207,29 +197,89 @@ public class AlexaSpeechlet implements Speechlet {
 			ingredientsList.add(ingredient);
 		}
 
-		System.out.println("Before Try");
 		try {
-			RecipeResponse[] recipeResponse = callRecipeAPI(getIngredients(ingredientsList));
+			RecipeResponse[] recipeResponses = callRecipeAPI(getIngredients(ingredientsList));
 			while (!CollectionUtils.isNullOrEmpty(ingredientsList)
-					&& (null == recipeResponse || recipeResponse.length == 0)) {
+					&& (null == recipeResponses || recipeResponses.length == 0)) {
 				ingredientsList.remove(new Random().nextInt(ingredientsList.size()));
-				recipeResponse = callRecipeAPI(getIngredients(ingredientsList));
+				recipeResponses = callRecipeAPI(getIngredients(ingredientsList));
 			}
 
-			if (null == recipeResponse || recipeResponse.length == 0) {
+			if (null == recipeResponses || recipeResponses.length == 0) {
 				return getResponse("Sorry, I haven't found any recipes. Would you like to cook something else?");
 			}
-
 			storeDBObject(session.getSessionId(), "PresentIngredientsIntent", getIngredients(ingredientsList));
 
-			System.out.println("Title: " + recipeResponse[0].getTitle());
-			callRecipeGetAPI(String.valueOf(recipeResponse[0].getId()));
-			return getResponse("I have found a great recipe for you. It's " + recipeResponse[0].getTitle()
-					+ " Would you like to hear it?");
+			ExecutorService exec = Executors.newFixedThreadPool(100);
+			List<Future<RecipeInfoResponse>> futuresList = new ArrayList<>();
+			for (final RecipeResponse recipeResponse : recipeResponses) {
+				Future<RecipeInfoResponse> future = exec.submit(new RecipeCall(recipeResponse));
+				futuresList.add(future);
+			}
+
+			RecipeInfoResponse recipeInfoResponse;
+			for (Future<RecipeInfoResponse> future : futuresList) {
+				recipeInfoResponse = future.get();
+
+				boolean flag = true;
+				if (null != recipeInfoResponse) {
+					String[] restrictions = session.getAttribute("restrictions").toString().split(" ");
+					for (final String restriction : restrictions) {
+						if ("no".equalsIgnoreCase(restriction)) {
+							break;
+						}
+
+						if ("vegan".equalsIgnoreCase(restriction)) {
+							flag = recipeInfoResponse.isVegan();
+						}
+
+						if ("vegetarian".equalsIgnoreCase(restriction)) {
+							flag = recipeInfoResponse.isVegetarian();
+						}
+					}
+
+					if (flag) {
+						if (!CollectionUtils.isNullOrEmpty(recipeInfoResponse.getAnalyzedInstructions())) {
+							session.setAttribute("steps", recipeInfoWriter.writeValueAsString(recipeInfoResponse));
+						}
+						int healthScore = (int) recipeInfoResponse.getHealthScore();
+						return getResponse((healthScore > 0
+								? "I have found a great recipe for you with health score of " + healthScore
+								: "I have found a great recipe for you today.") + ". It's "
+								+ recipeInfoResponse.getTitle()
+								+ (CollectionUtils.isNullOrEmpty(recipeInfoResponse.getAnalyzedInstructions()) ? " "
+										: ". It will take approximately " + (int) recipeInfoResponse.getCookingMinutes()
+												+ " minutes. Would you like to hear it?"));
+					}
+				}
+			}
+
+			return getResponse(
+					"Sorry, I haven't found any recipes that matches your dietary restrictions. Would you like to cook something else?");
 		} catch (IOException e) {
 			System.out.println(e);
 			throw new SpeechletException("Invalid Intent");
 		}
+	}
+
+	private SpeechletResponse getRestrictionsIntent(Intent intent, Session session) throws SpeechletException {
+		session.setAttribute("nextIntent", "SelectRecipeIntent");
+
+		System.out.println("Restriction Intent: " + intent.getSlots().get("restriction"));
+		session.setAttribute("restrictions", intent.getSlots().get("restriction").getValue());
+
+		return getResponse("OK! How spicy would you like it to be?");
+	}
+
+	private SpeechletResponse getRecipeIntent(Intent intent, Session session)
+			throws SpeechletException, JsonProcessingException, IOException {
+		RecipeInfoResponse recipeInfoResponse = recipeInfoReader.readValue(session.getAttribute("steps").toString());
+		StringBuilder sb = new StringBuilder();
+		for (final RecipeStep recipeStep : recipeInfoResponse.getAnalyzedInstructions().get(0).getSteps()) {
+			sb.append(" Step " + recipeStep.getNumber() + " is " + recipeStep.getStep());
+		}
+		return getResponse((null == intent || "no".equalsIgnoreCase(intent.getSlots().get("Recipe").getValue()))
+				? "Thanks for using Kitchen Helper. Have a good day." : sb.toString());
 	}
 
 	@Override
@@ -244,11 +294,23 @@ public class AlexaSpeechlet implements Speechlet {
 		} else if ("SpiceLevelIntent".equals(intentName)) {
 			return getSpiceIntent(intent, session);
 		} else if ("PresentIngredientsIntent".equals(intentName)) {
-			return getIngredientIntent(intent, session);
+			try {
+				return getIngredientIntent(intent, session);
+			} catch (Exception ex) {
+				throw new SpeechletException("Major Exception", ex);
+			}
+		} else if ("SelectRestrictionsIntent".equals(intentName)) {
+			return getRestrictionsIntent(intent, session);
+		} else if ("SelectRecipeIntent".equals(intentName)) {
+			try {
+				return getRecipeIntent(intent, session);
+			} catch (Exception ex) {
+				throw new SpeechletException("Major Exception", ex);
+			}
 		} else if ("AMAZON.HelpIntent".equals(intentName)) {
 			return getHelpResponse();
 		} else {
-			throw new SpeechletException("Invalid Intent");
+			throw new SpeechletException("Invalid Intent: " + intentName);
 		}
 	}
 
@@ -274,5 +336,52 @@ public class AlexaSpeechlet implements Speechlet {
 	public void onSessionStarted(SessionStartedRequest sessionStartedRequest, Session session)
 			throws SpeechletException {
 		LOGGER.debug("New Session Started With Session ID: " + session.getSessionId());
+	}
+
+	private String getIngredients(List<String> ingredientsList) {
+		return ingredientsList.toString().replace(" ", "").replace("[", "").replace("]", "");
+	}
+
+	private RecipeResponse[] callRecipeAPI(final String ingredients) throws JsonProcessingException, IOException {
+		Map<String, String> headers = new HashMap<>();
+		headers.put("X-Mashape-Key", "xqOt7PKxyimshFumkS9zXFWmyyhYp1QrEZ5jsnropLkpoEYBsr");
+		headers.put("Accept", "application/json");
+
+		Response<String> response = apiCaller.sendRequest(apiCaller.generateRequest("fooBar",
+				URI.create(
+						"https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="
+								+ URLEncoder.encode(ingredients, "UTF-8")),
+				headers));
+
+		return recipeReader.readValue(response.getAwsResponse());
+	}
+
+	public static final class RecipeCall implements Callable<RecipeInfoResponse> {
+		private APICaller apiCaller = new APICaller();
+		private ObjectReader recipeInfoReader = Utilities.getJSONMapper().readerFor(RecipeInfoResponse.class);
+		private RecipeResponse recipeResponse;
+
+		public RecipeCall(RecipeResponse recipeResponse) {
+			this.recipeResponse = recipeResponse;
+		}
+
+		@Override
+		public RecipeInfoResponse call() throws Exception {
+			return callRecipeGetAPI(String.valueOf(recipeResponse.getId()));
+		}
+
+		private RecipeInfoResponse callRecipeGetAPI(final String recipeId) throws JsonProcessingException, IOException {
+			Map<String, String> headers = new HashMap<>();
+			headers.put("X-Mashape-Key", "xqOt7PKxyimshFumkS9zXFWmyyhYp1QrEZ5jsnropLkpoEYBsr");
+			headers.put("Accept", "application/json");
+
+			Response<String> response = apiCaller.sendRequest(apiCaller.generateRequest("fooBar",
+					URI.create("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeId
+							+ "/information?includenutrition=true"),
+					headers));
+
+			System.out.println(response.getAwsResponse());
+			return recipeInfoReader.readValue(response.getAwsResponse());
+		}
 	}
 }

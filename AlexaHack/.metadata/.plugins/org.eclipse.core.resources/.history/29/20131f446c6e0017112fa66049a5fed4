@@ -1,0 +1,121 @@
+package com.ninja.alexa.skill.kitchen.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown=true)
+public class RecipeInfoResponse {
+	@JsonProperty("lowFodmap")
+	private boolean lowFodmap;
+
+	@JsonProperty("weightWatcherSmartPoints")
+	private double weightWatcherSmartPoints;
+
+	@JsonProperty("sustainable")
+	private boolean sustainable;
+
+	@JsonProperty("veryPopular")
+	private boolean veryPopular;
+
+	@JsonProperty("cheap")
+	private boolean cheap;
+
+	@JsonProperty("veryHealthy")
+	private boolean veryHealthy;
+
+	@JsonProperty("dairyFree")
+	private boolean dairyFree;
+
+	@JsonProperty("glutenFree")
+	private boolean glutenFree;
+
+	@JsonProperty("vegan")
+	private boolean vegan;
+
+	@JsonProperty("vegetarian")
+	private boolean vegetarian;
+
+	@JsonProperty("whole30")
+	private boolean whole30;
+
+	@JsonProperty("ketogenic")
+	private boolean ketogenic;
+
+	@JsonProperty("servings")
+	private double servings;
+
+	@JsonProperty("preparationMinutes")
+	private double preparationMinutes;
+
+	@JsonProperty("cookingMinutes")
+	private double cookingMinutes;
+
+	@JsonProperty("healthScore")
+	private double healthScore;
+
+	@JsonProperty("aggregateLikes")
+	private int aggregateLikes;
+
+	@JsonProperty("spoonacularScore")
+	private double spoonacularScore;
+
+	@JsonProperty("pricePerServing")
+	private double pricePerServing;
+
+	@JsonProperty("sourceUrl")
+	private String sourceUrl;
+
+	@JsonProperty("spoonacularSourceUrl")
+	private String spoonacularSourceUrl;
+	
+	@JsonProperty("extendedIngredients")
+	private List<ExtendedIngredients> extendedIngredients;
+	
+	public static final class ExtendedIngredients {
+		@JsonProperty("id")
+		private long id;
+		
+		@JsonProperty("aisle")
+		private String aisle;
+		
+		@JsonProperty("name")
+		private String name;
+		
+		@JsonProperty("amount")
+		private double amount;
+		
+		@JsonProperty("unit")
+		private String unit;
+		
+		@JsonProperty("originalString")
+		private String originalString;
+	}
+	
+	
+	
+	"id": 136695,
+    "title": "The Barefoot Contessa's Lemon and Garlic Roast Chicken",
+    "readyInMinutes": 130,
+    "image": "https://spoonacular.com/recipeImages/the-barefoot-contessas-lemon-and-garlic-roast-chicken-2-136695.jpg",
+    "imageType": "jpg",
+    "cuisines": [],
+    "dishTypes": [
+        "lunch",
+        "main course",
+        "main dish",
+        "dinner"
+    ],
+    "diets": [
+        "gluten free",
+        "primal",
+        "ketogenic"
+    ],
+    "instructions": null,
+    "analyzedInstructions": []
+	
+
+
+
+}
